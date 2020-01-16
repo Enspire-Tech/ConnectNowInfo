@@ -1,0 +1,69 @@
+.page-caption-container {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+}
+.btn-xl {
+  padding: 1.25rem 2.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.btn-primary,
+.btn-primary:active,
+.btn-primary:hover {
+  background-color: inherit;
+  border-color: #f9b508;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.btn-primary:active,
+.btn-primary:hover {
+  background-color: #f9b508;
+}
+.btn-secondary,
+.btn-secondary:active,
+.btn-secondary:hover {
+  background-color: inherit;
+  border-color: #808080;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.btn-secondary:active,
+.btn-secondary:hover {
+  background-color: #808080;
+  color: #fff;
+}
+.card-header {
+  padding: 0 !important;
+}
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+@media screen and (max-width: 992px) {
+  body {
+    background: #e0e0e0;
+  }
+  #carousel_container {
+    display: none !important;
+  }
+  .page-caption-container {
+    position: initial;
+    left: initial;
+    top: initial;
+    transform: none;
+  }
+  #support_button {
+    margin-bottom: 50px;
+  }
+}
