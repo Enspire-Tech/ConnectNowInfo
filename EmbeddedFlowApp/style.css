@@ -117,6 +117,7 @@ a:hover {
   color: #f9b508;
 }
 a:hover {
+  filter: brightness(90%);
   -webkit-filter: brightness(90%);
 }
 body {
