@@ -135,6 +135,7 @@ body {
     padding: 0 !important;
 }
 
+/*
 .page-caption {
     // padding-top: 10rem;
     // padding-bottom: calc(10rem - 72px);
@@ -144,6 +145,15 @@ body {
     // background-attachment: scroll;
     // background-size: cover;
   }
+*/
+
+div[class*="img-page"] {
+  min-height: 350px;
+}
+
+.smaller{
+  font-size: smaller;
+}
 
 .carousel-item {
     height: 100vh;
@@ -205,10 +215,6 @@ body {
   min-height: 500px;
   max-height: 500px;
   overflow: hidden;
-  .display-1 {
-    font-style: normal;
-    font-weight: 800;
-  }
   p.lead {
     font-weight: 400;
     font-size: 32px;
@@ -221,7 +227,13 @@ body {
   background-size: contain;
   background-repeat: repeat;
   width: 100%;
-  height: 100%;;
+  height: 100%;
+
+  .display-1 {
+    font-style: normal;
+    font-weight: 800;
+  }
+
 }
 
 #jumbotron_image_container {
@@ -234,7 +246,7 @@ body {
   background: url(https://cdn.brandfolder.io/W49AM39J/as/pv3nf3-4xyt28-8csfop/platform-circle-aqua.auto?height=600&max_age=604800%3Fwidth%3D600);
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 999;
+  z-index: 998;
   overflow: hidden;
 }
 
@@ -399,9 +411,6 @@ p.lead-text {
     margin-top: 3em !important;
   }
 
-  div[class*="img-page-"] {
-    height: 300px;
-  }
 }
 
 .top-navigation {
