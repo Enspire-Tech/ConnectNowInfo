@@ -344,7 +344,8 @@ body {
 
 .docs-article .docs-section {
 	padding: 2rem 0;
-	border-bottom: 1px solid #e7e9ed
+  border-bottom: 1px solid #e7e9ed;
+  display: none;
 }
 
 .docs-article .docs-section p:last-child {
@@ -504,6 +505,14 @@ body {
     left: 50%;
     top: 50%;
     z-index: 1;
+}
+
+.btn:focus, 
+.btn:active,
+.btn-primary:focus, 
+.btn-primary:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .btn-xl {
@@ -667,6 +676,13 @@ ul.no-bullets {
 
 .img-page {
   border: 1px solid #ccc;
+}
+
+.img-page-documentation {
+  background: url("/assets/cn-documentation-image.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .img-page-cn-productions {
