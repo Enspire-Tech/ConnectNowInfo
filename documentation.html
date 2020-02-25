@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>CONNECT-NOW DOCUMENTATION</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="description" content="API documentation for Boomi Connect Now.">
+    <meta name="author" content="Enterprise">    
+    <link
+        rel="stylesheet"
+        href="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link 
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"
+    />    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/style.css">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head> 
+<body class="docs-page">    
+    <header class="header fixed-top">	    
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible mr-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+	                <div class="site-logo"><a class="navbar-brand" href="https://boomi.com"><img class="navbar-brand" src="/assets/boomi-website-logo.svg" alt="boomi logo" style="height: 50px;"> <span class="text-alt">Documentation</span></a></div>
+                </div>
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	                <!-- <div class="top-search-box d-none d-lg-flex mx-lg-5">
+		                <form class="search-form">
+				            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+				            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+				        </form>
+                    </div> -->
+                    <a href="index.html" class="btn btn-primary navy d-none d-lg-flex mr-3" target="_blank">Home</a>
+		            <a href="/assets/bcn-api-documentation.pdf" class="btn btn-primary navy d-none d-lg-flex" target="_blank">Download</a>
+	            </div>
+            </div>
+        </div>
+    </header>
+    <div class="docs-wrapper">
+	    <div id="docs-sidebar" class="docs-sidebar">
+		    <div class="top-search-box d-lg-none p-3">
+                <form class="search-form">
+		            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+		            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+		        </form>
+            </div>
+		    <nav id="docs-nav" class="docs-nav navbar">
+			    <ul class="section-items list-unstyled nav flex-column pb-3">
+				    <!-- <li class="nav-item section-title"><a class="nav-link scrollto active" href="#" data-section-id="introduction"><span class="theme-icon-holder mr-2"><i class="fas fa-map-signs"></i></span>Introduction</a></li> -->
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto active" href="#" data-section-id="api"><span class="theme-icon-holder mr-2"><i class="fas fa-box"></i></span>API</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-1">Attach Integration Pack to Environment</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-2">Execute Integration Process</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-3">Get Available Integration Packs</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-4">Get Boomi Account Profile</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-5">Get Environments for Account</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-6">Get Extended Connections for Installed Integration Pack</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-7">Get Extended Cross Reference Tables for Installed Integration Pack</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-8">Get Extended Maps for Installed Integration Pack</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-9">Get Extended Process Properties for Installed Integration Pack</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-10">Get Execution Records</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-11">Get Installed Integration Packs</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-12">Get OAuth2 Access Token URL</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-13">Get Process Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-14">Get Processes in a Deployed Integration Pack</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-15">Removed Installed Integration Pack Instance</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-16">Upsert Environment Extensions</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-17">Upsert Map Extensions</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#" data-section-id="item-1-18">Upsert Process Schedule</a></li>
+			    </ul>
+		    </nav>
+        </div>
+	    <div class="docs-content">
+		    <div class="container">
+                <p>&nbsp;</p>
+			    <article class="docs-article" id="introduction">
+				    <header class="docs-header">
+					    <section class="docs-intro">
+						    <!-- <p>&nbsp;</p> -->
+						</section>
+				    </header>
+			    </article>
+			    <article class="docs-article" id="api">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">API <span class="docs-time">Last updated: 2020-02-20</span></h1>
+					    <section class="docs-intro">
+						    <p>This section includes documentaiton for Boomi Connect Now's API services.</p>
+						</section>
+				    </header>
+				     <section class="docs-section" id="item-1-1">
+						<h2 class="section-heading">Attach Integration Pack to Environment</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/createIntegrationPackDeployment HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "auth": "...",
+    "accountId": "",
+    "environmentId": "",
+    "integrationPackId": "",
+    "integrationPackOverrideName": ""
+}
+                                    
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
+                            <li><strong class="mr-1">EnvironmentId:</strong> <code>the Id of the environment to which the integration pack will be deployed as returned by <a class="internal-link" href="#" data-section-id="item-1-5">Get Environments for Account</a>.</code></li>
+                            <li><strong class="mr-1">Integration Pack Id:</strong> <code>the Id of the integration pack to deploy as returned by <a class="internal-link" href="#" data-section-id="item-1-3">Get Available Integration Packs</a>.</code></li>
+                            <li><strong class="mr-1">Integration Pack Override Name:</strong> <code>the name to give to the integration pack instance being deployed. Applicable only to multi-install integration packs.</a>.</code></li>
+                        </ul>
+					</section>					
+					<section class="docs-section" id="item-1-2">
+						<h2 class="section-heading">Execute Integration Process</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/executeIntegrationProcess HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "id": ""
+    "auth": "...",
+    "accountId": ""
+}                                   
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Id:</strong> <code>the ID of the integration process, as reported by <a class="internal-link" href="#" data-section-id="item-1-14">Get Processes in a Deployed Integration Pack</a>.</code></li>
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
+                        </ul>
+					</section>					
+					<section class="docs-section" id="item-1-3">
+						<h2 class="section-heading">Get Available Integration Packs</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>/ws/simple/getAllIPacksAvailableToAccount HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "auth": "...",
+    "accountId": ""
+}                                                     
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account for which you want available IPacks.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-4">
+						<h2 class="section-heading">Get Boomi Account Profile</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/getBoomiAccountProfile HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "auth": "...",
+    "accountId": ""
+}                                                     
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the account for which the profile is being requested.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-5">
+						<h2 class="section-heading">Get Environments for Account</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/getEnvironmentsForAccount HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "auth": "...",
+    "accountId": ""
+}                                                     
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account for which to retrieve environments.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-6">
+						<h2 class="section-heading">Get Extended Connections for Installed Integration Pack</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/getExtendedConnectionsForInstalledIPack HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "auth": "...",
+    "accountId": "",
+    "id": "",
+    "@type": ""
+}                                                                       
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack is deployed.</code></li>
+                            <li><strong class="mr-1">Id:</strong> <code>the Id of the integration pack instance for which to retrieve extended connections.</code></li>
+                            <li><strong class="mr-1">@type:</strong> <code>the install type of integration pack (“SINGLE” or “MULTI”).</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-7">
+						<h2 class="section-heading">Get Extended Cross Reference Tables for Installed Integration Pack</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/getExtendedConnectionsForInstalledIPack HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "auth": "...",
+    "accountId": "",
+    "id": "",
+    "@type": ""
+}                                                                       
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack is deployed.</code></li>
+                            <li><strong class="mr-1">Id:</strong> <code>the Id of the integration pack instance for which to retrieve extended cross reference tables.</code></li>
+                            <li><strong class="mr-1">@type:</strong> <code>the install type of integration pack (“SINGLE” or “MULTI”).</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-8">
+						<h2 class="section-heading">Get Extended Maps for Installed Integration Pack</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/getExtendedMapsForInstalledIPackHTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "auth": "...",
+    "accountId": "",
+    "id": "",
+    "@type": "",
+    "connection": [{}]
+}
+                                                                                             
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack is deployed.</code></li>
+                            <li><strong class="mr-1">Id:</strong> <code>the Id of the integration pack instance for which to retrieve extended maps.</code></li>
+                            <li><strong class="mr-1">@type:</strong> <code>the install type of integration pack (“SINGLE” or “MULTI”).</code></li>
+                            <li><strong class="mr-1">Connection:</strong> <code>an array of connection objects extended by the integration pack as return by <a class="internal-link" href="#" data-section-id="item-1-6">Get Extended Connections for Installed IPack</a>.  These are needed to support dynamic browse profiles.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-9">
+						<h2 class="section-heading">Get Extended Process Properties for Installed Integration Pack</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/getExtendedProcessPropertiesForInstalledIPack /1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "auth": "...",
+    "accountId": "",
+    "id": "",
+    "@type": ""
+}                                                        
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack is deployed.</code></li>
+                            <li><strong class="mr-1">Id:</strong> <code>the Id of the integration pack instance for which to retrieve extended maps.</code></li>
+                            <li><strong class="mr-1">@type:</strong> <code>the install type of integration pack (“SINGLE” or “MULTI”).</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-10">
+						<h2 class="section-heading">Get Execution Records</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>/ws/simple/getProcessExecutionRecords HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "date": "yyyy-MM-dd’T’hh:mm:ss.nnn",
+    "auth": "...",
+    "accountId": ""
+}                                            
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Date:</strong> <code>the "from" date for execution logs.  The endpoint will return the first 1000 records beginning with that date/time.</code></li>
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account for which you want execution records.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-11">
+						<h2 class="section-heading">Get Installed Integration Packs</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>/ws/simple/getInstalledIPacks HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "auth": "...",
+    "accountId": ""
+}                                                               
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account for which you want installed IPacks.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-12">
+						<h2 class="section-heading">Get OAuth2 Access Token URL</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/getOAuth2AccessTokenURL HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "accountId": "",
+    "auth”: "...",
+    "connectionId": "",
+    "environmentId": "",
+    "extensionGroupId": "",
+    "fieldId": ""
+}                                                                                 
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">ConnectionId:</strong> <code>the ID of the connection object as returned by <a class="internal-link" href="#" data-section-id="item-1-6">Get Extended Connections for Deployed Integration Pack</a>.</code></li>
+                            <li><strong class="mr-1">EnvironmentId:</strong> <code>the ID of the environment to which the integration process is deployed as returned by <a class="internal-link" href="#" data-section-id="item-1-5">Get Environments for Account</a>.</code></li>
+                            <li><strong class="mr-1">ExtensionGroupId:</strong> <code>the ID of the integration process as returned by <a class="internal-link" href="#" data-section-id="item-1-15">Get Processes in a Deployed Integration Pack</a>.</code></li>
+                            <li><strong class="mr-1">FieldId:</strong> <code>the ID of connection field that will contain the OAuth2 token, contained in the response from <a class="internal-link" href="#" data-section-id="item-1-6">Get Extended Connections for Deployed Integration Pack</a>.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-13">
+						<h2 class="section-heading">Get Process Schedule</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/getProcessSchedules HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "accountId": "",
+    "auth”: "...",
+    "id": ""
+}                                                                                                  
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">ConnectionId:</strong> <code>the ID of the connection object as returned by <a class="internal-link" href="#" data-section-id="item-1-6">Get Extended Connections for Deployed Integration Pack</a>.</code></li>
+                            <li><strong class="mr-1">EnvironmentId:</strong> <code>the ID of the environment to which the integration process is deployed as returned by <a class="internal-link" href="#" data-section-id="item-1-5">Get Environments for Account</a>.</code></li>
+                            <li><strong class="mr-1">ExtensionGroupId:</strong> <code>the ID of the integration process as returned by <a class="internal-link" href="#" data-section-id="item-1-15">Get Processes in a Deployed Integration Pack</a>.</code></li>
+                            <li><strong class="mr-1">FieldId:</strong> <code>the ID of connection field that will contain the OAuth2 token, contained in the response from <a class="internal-link" href="#" data-section-id="item-1-6">Get Extended Connections for Deployed Integration Pack</a>.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-14">
+						<h2 class="section-heading">Get Processes in a Deployed Integration Pack</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/getInstalledIPackInstanceProcesses HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "id": "",
+    "auth": "...",
+    "accountId": ""
+}                                                                                      
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Id:</strong> <code>the ID of the deployed integration pack, as reported by <a class="internal-link" href="#" data-section-id="item-1-11">Get Installed Integration Packs</a>.</code></li>
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-15">
+						<h2 class="section-heading">Removed Installed Integration Pack Instance</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">DELETE:</strong> <code>ws/simple/deleteInstalledIPackInstance HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "id": "",
+    "auth": "...",
+    "accountId": ""
+}                                                                                      
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">Id:</strong> <code>the ID of the deployed integration pack, as reported by <a class="internal-link" href="#" data-section-id="item-1-11">Get Installed Integration Packs</a>.</code></li>
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-16">
+						<h2 class="section-heading">Upsert Environment Extensions</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/upsertEnvironmentExtensions HTTPS/1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "accountId": "",
+    "iPackInstanceId": "",
+    "@ipackType": "",
+    "auth": "",
+    "processPropertyContainers": [
+        {
+        "@type": "",
+        "environmentId": "",
+        "id": "",
+        "name": "",
+        "processProperties": [
+            {
+            "key": "",
+            "label": "",
+            "encryptedValueSet": [true/false],
+            "value": ""
+            }
+        ]
+        }
+    ],
+    "connections": [
+        {
+        "@type": "",
+        "field": [
+            {
+            "@type": "",
+            "id": "",
+            "encryptedValueSet": [true/false],
+            "usesEncryption": [true/false],
+            "componentOverride": [true/false],
+            "value": "",
+            "isOAuth2": [true/false],
+            "oAuth2TokenURL": ""
+            }
+        ],
+        "id": "",
+        "name": ""
+        }
+        ],
+        "id": "",
+        "name": ""
+        }
+    ],
+    "crossReferenceTables": [
+        {
+        "@type": "",
+        "CrossReferenceRows": {
+            "@type": "",
+            "row": [
+            {
+                "@type": "CrossReferenceRow",
+                "ref1": "",
+                "ref2": "",
+                "ref3": "",
+                "ref4": "",
+                "ref5": "",
+                "ref6": "",
+                "ref7": "",
+                "ref8": "",
+                "ref9": "",
+                "ref10": "",
+                "ref11": "",
+                "ref12": "",
+                "ref13": "",
+                "ref14": "",
+                "ref15": "",
+                "ref16": "",
+                "ref17": "",
+                "ref18": "",
+                "ref19": "",
+                "ref20": ""
+            }
+            ]
+        },
+        "id": "",
+        "overrideValues": [true/false],
+        "name": "",
+        "columnNames": ""
+        }
+        ]
+    }                                                                                                          
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">iPackInstanceId:</strong> <code>the ID of the deployed integration pack, as reported by <a class="internal-link" href="#" data-section-id="item-1-11">Get Installed Integration Packs</a>.</code></li>
+                            <li><strong class="mr-1">ProcessPropertyContainers:</strong> <code>an array of objects returned by <a class="internal-link" href="#" data-section-id="item-1-9">Get Extended Process Properties for Installed Integration Pack</a>.</code></li>
+                            <li><strong class="mr-1">Connections:</strong> <code>an array of objects returned by <a class="internal-link" href="#" data-section-id="item-1-6">Get Extended Connections for Installed Integration Pack</a>.</code></li>
+                            <li><strong class="mr-1">CrossReferenceTables:</strong> <code>an array of objects returned by <a class="internal-link" href="#" data-section-id="item-1-7">Get Extended Cross Reference Tables for Installed Integration Pack</a>.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-17">
+						<h2 class="section-heading">Upsert Map Extensions</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/upsertMapExtensions HTTPS 1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "accountId": "",
+    "accessToken": "",
+    "environmentId": "",
+    "extensionGroupId": "",
+    "Maps": [
+                {
+                "id": "",
+                "processId": "",
+                "mapId": "",
+                "name": "",
+                "Map": {
+                    "SourceProfileNodes": [
+                    {
+                        "@type": "",
+                        "name": "",
+                        "componentId": "",
+                        "xpath": ""
+                    }
+                    ],
+                    "DestinationProfileNodes": [
+                    {
+                        "@type": "",
+                        "name": "",
+                        "componentId": "",
+                        "xpath": ""
+                    }
+                    ],
+                    "ExtendedMappings": [
+                    {
+                        "@type": ""
+                        "fromXPath": "",
+                        "toXPath": "",
+                        "fromFunction": "",
+                        "toFunction": ""
+                    }
+                    ],
+                    "ExtendedFunctions": [
+                    {
+                        "@type": "",
+                        "cacheType": "",
+                        "id": "",
+                        "type": "",
+                        "Inputs": {
+                        "@type": "",
+                        "Input": [
+                            {
+                            "@type": "",
+                            "default": null || "",
+                            "name": "",
+                            "key": ""
+                            }
+                        ]
+                        },
+                        "Outputs": {
+                        "@type": "",
+                        "Output": [
+                            {
+                            "@type": "",
+                            "name": "",
+                            "key": ""
+                            }
+                        ]
+                        }
+                    }
+                    ]
+                }
+            }
+        ]
+    }                                      
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
+                            <li><strong class="mr-1">AccessToken:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">EnvironmentId:</strong> <code>the ID of the environment to which the integration pack containing the map is deployed.</code></li>
+                            <li><strong class="mr-1">ExtensionGroupId:</strong> <code>the ID of the deployed integration pack, as reported by <a class="internal-link" href="#" data-section-id="item-1-11">Get Installed Integration Packs</a>.</code></li>
+                            <li><strong class="mr-1">Maps:</strong> <code>array of map objects as returned by <a class="internal-link" href="#" data-section-id="item-1-8">Get Extended Maps for Installed Integration Pack</a>.</code></li>
+                        </ul>
+                    </section>
+                    <section class="docs-section" id="item-1-18">
+						<h2 class="section-heading">Upsert Process Schedule</h2>
+                        <ul class="no-bullets">
+						    <li><strong class="mr-1">POST:</strong> <code>ws/simple/upsertProcessSchedules HTTPS 1.1</code></li>
+						    <li><strong class="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+						<ul class="no-bullets">
+						    <li><strong class="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong class="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div class="docs-code-block">
+                            <pre class="shadow-lg rounded">
+                                <code class="json hljs">
+{
+    "result": [
+        {
+        "@type": "ProcessSchedules",
+        "Schedule": [
+            {
+            "@type": "",
+            "minutes": "",
+            "hours": "",
+            "daysOfWeek": "",
+            "daysOfMonth": "",
+            "months": "",
+            "years": ""
+            }
+        ],
+        "Retry": {
+            "@type": "ScheduleRetry",
+            "Schedule": null,
+            "maxRetry": 0
+        },
+        "processId": "",
+        "atomId": "",
+        "id": ""
+        }
+    ],
+    "accountId": "",
+    "auth": ""
+}
+                                </code>
+                            </pre>
+                        </div>
+                        <ul class="no-bullets">
+                            <li><strong class="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
+                            <li><strong class="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong class="mr-1">Result:</strong> <code>an array of Schedule objects.</code></li>
+                        </ul>
+					</section>
+			    </article>
+			    <!-- <footer class="footer">
+				    <div class="container text-center py-5">
+				        <small class="copyright">Copyright &copy; <a href="/#" target="_blank">Holder</a></small>
+				    </div>
+			    </footer> -->
+		    </div>
+	    </div>
+    </div>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script> 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+    <script>
+        function toggleSection(e) {
+            const sectionId = $(e).data("section-id");
+            $(".nav-link").removeClass("active");
+            $(".nav-link[data-section-id='" + sectionId + "']").addClass("active");
+            $(".docs-section").hide();
+            $("#" + sectionId).show();
+        }
+
+        $(function() {
+
+            $("#item-1-1").show();
+            $(".nav-link[data-section-id='item-1-1']").addClass("active");
+
+            $(".internal-link").on("click", "", function () {
+                toggleSection(this);
+            });
+
+            $(".nav-link").on("click", "", function () {
+                toggleSection(this);
+            });
+
+        });
+    </script>
+</body>
+</html> 
+
