@@ -1,0 +1,8 @@
+.CNApp .login-container {
+  border-top: 1px solid #043d58;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+.CNApp .login-container button.login {
+  min-width: 10rem;
+}

@@ -1,0 +1,32 @@
+.CNApp .form-group label {
+  color: #7a7a7a;
+}
+.CNApp .form-check-input {
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+}
+.CNApp .form-check-label {
+  color: #7a7a7a;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.CNApp .padded {
+  padding: 20px;
+}
+.CNApp .padded-small {
+  padding: 10px;
+}
+.CNApp .pad-left {
+  padding-left: 20px;
+}
+.CNApp .pad-right {
+  padding-right: 20px;
+}
+.CNApp .pad-bottom {
+  padding-bottom: 20px;
+}
+.CNApp .pad-top {
+  padding-top: 20px;
+}
