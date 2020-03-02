@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import "./App.css";
-import "./styles/styles.css";
 import {Home} from "./components/home";
 import { Documentation } from "./components/documentation";
 import { LoginComponent } from "./components/login-component";
-
 import { useUserState, isAuthorizedUser } from "./context/user-provider";
-
 import { Switch, Route } from "react-router";
 import ProtectedRoute, { ProtectedRouteProps } from "./components/protected-route";
 import { useSessionContext } from "./context/session-context";
+
+import "./styles/App.css";
+import "./styles/styles.css";
 
 const CNApp: React.FC = () => {
 
@@ -17,7 +16,7 @@ const CNApp: React.FC = () => {
 
   const setRedirectPathOnAuthentication = (path: string) => {
     updateSessionContext({...sessionContext, redirectPathOnAuthentication: path});
-  }
+  };
 
   const defaultProtectedRouteProps: ProtectedRouteProps = {
     isAuthenticated: isAuthorizedUser(),
@@ -35,6 +34,6 @@ const CNApp: React.FC = () => {
         </Switch>
     </div>
   );
-}
+};
 
 export default CNApp;
