@@ -105,7 +105,7 @@ export const Home: React.FC = () => {
                 </p>
                 <p className="text-center">
                   <a
-                    href="documentation.html"
+                    href="/Documentation"
                     className="btn-primary btn-lg navy"
                     title="Service Desk"
                     target="blank"

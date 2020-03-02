@@ -1,29 +1,19 @@
-import React, { useState } from "react";
-import "./App.css";
+import React from "react";
+import "./styles/App.css";
 import "./styles/styles.css";
 import {Home} from "./components/home";
 import { Documentation } from "./components/documentation";
 import { LoginComponent } from "./components/login-component";
-
-import { useUserState, isAuthorizedUser } from "./context/user-provider";
-
+import { isAuthorizedUser } from "./context/user-provider";
 import { Switch, Route } from "react-router";
 import ProtectedRoute, { ProtectedRouteProps } from "./components/protected-route";
-import { useSessionContext } from "./context/session-context";
 
 const CNApp: React.FC = () => {
-
-  const [sessionContext, updateSessionContext] = useSessionContext();
-
-  const setRedirectPathOnAuthentication = (path: string) => {
-    updateSessionContext({...sessionContext, redirectPathOnAuthentication: path});
-  }
 
   const defaultProtectedRouteProps: ProtectedRouteProps = {
     isAuthenticated: isAuthorizedUser(),
     authenticationPath: "/",
-    redirectPathOnAuthentication: sessionContext.redirectPathOnAuthentication || "/Home",
-    setRedirectPathOnAuthentication
+    redirectPathOnAuthentication: "/Home"
   };
   
   return (

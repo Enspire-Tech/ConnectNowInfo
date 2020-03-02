@@ -15,7 +15,7 @@ export const Documentation: React.FC = () => {
                                     <span></span>
                                     <span></span>
                                 </button>
-                                <div className="site-logo"><a className="navbar-brand" href="https://boomi.com"><img className="navbar-brand docs-image" src={logo} alt="boomi logo" /> <span className="text-alt">Documentation</span></a></div>
+                                <div className="site-logo"><a className="navbar-brand" href="https://boomi.com"><img className="navbar-brand docs-image" src={logo} alt="boomi logo" /></a> <span className="text-alt">API Reference</span></div>
                             </div>
                             <div className="docs-top-utilities d-flex justify-content-end align-items-center">
                                 &nbsp;
