@@ -27,7 +27,7 @@ const CNApp: React.FC = () => {
     redirectPathOnAuthentication: sessionContext.redirectPathOnAuthentication || "/Home",
     setRedirectPathOnAuthentication
   };
-  
+
   return (
     <div className="CNApp">
         <Switch>
