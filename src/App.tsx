@@ -5,7 +5,7 @@ import {Home} from "./components/home";
 import { Documentation } from "./components/documentation";
 import { LoginComponent } from "./components/login-component";
 
-import { useUserState } from "./context/user-provider";
+import { useUserState, isAuthorizedUser } from "./context/user-provider";
 
 import { Switch, Route } from "react-router";
 import ProtectedRoute, { ProtectedRouteProps } from "./components/protected-route";
@@ -15,14 +15,12 @@ const CNApp: React.FC = () => {
 
   const [sessionContext, updateSessionContext] = useSessionContext();
 
-  const userState = useUserState();
-
   const setRedirectPathOnAuthentication = (path: string) => {
     updateSessionContext({...sessionContext, redirectPathOnAuthentication: path});
   }
 
   const defaultProtectedRouteProps: ProtectedRouteProps = {
-    isAuthenticated: userState.user.authorized ? true : false,
+    isAuthenticated: isAuthorizedUser(),
     authenticationPath: "/",
     redirectPathOnAuthentication: sessionContext.redirectPathOnAuthentication || "/Home",
     setRedirectPathOnAuthentication

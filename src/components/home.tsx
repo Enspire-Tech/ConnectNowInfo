@@ -1,39 +1,12 @@
 import React from "react";
-import logo from "./../assets/boomi-website-logo.svg";
 import jumbotron_background from "./../assets/jumbotron-background.jpg";
 import "../styles/home.css";
+import { NavBar } from "./navbar";
 
 export const Home: React.FC = () => {
     return (
         <React.Fragment>
-          <div className="row">
-            <div className="top-navigation col-12"></div>
-          </div>
-          <nav className="navbar navbar-expand-lg navbar-expand-sm navbar-light bg-light">
-            <div className="container-fluid">
-              <div className="col-1">&nbsp;</div>
-              <div className="col-11">
-                <a href="https://boomi.com">
-                  <img
-                    className="navbar-brand"
-                    src={logo}
-                    alt="boomi logo"
-                  />
-                </a>
-                <button
-                  className="navbar-toggler"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#navbarResponsive"
-                  aria-controls="navbarResponsive"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span className="navbar-toggler-icon"></span>
-                </button>
-              </div>
-            </div>
-          </nav>
+          <NavBar />
           <div className="row">
             <div className="col-12 align-items-end">
               <div id="jumbotron_image_container">
@@ -125,7 +98,7 @@ export const Home: React.FC = () => {
             <div className="row mt-10">
               <div className="col-lg-6 col-md-6 col-sm-12 p-4">
                 <p className="lead-tagline">Documented Processes</p>
-                <p className="lead-text">API Documentation</p>
+                <p className="lead-text">API Reference</p>
                 <p>
                   Count on our documentation to guide you in using Connect Now
                   services.
@@ -137,7 +110,7 @@ export const Home: React.FC = () => {
                     title="Service Desk"
                     target="blank"
                   >
-                    Documentation
+                    API Reference
                   </a>
                 </p>
               </div>

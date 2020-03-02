@@ -103,6 +103,11 @@ const getAuthorizedUser = () => {
     return user;
 };
 
+const isAuthorizedUser = () => {
+    const user: IUser = getAuthorizedUser();
+    return user.authorized;
+};
+
 const doLogin = async (dispatch: any, state: IState) => {
 
     console.log("do login.");
@@ -160,4 +165,4 @@ const saveUser = async (dispatch: any, state: IState) => {
     return response;
 };
 
-export { UserProvider, useUserState, useUserDispatch, doLogin, doLogOut, getAuthorizedUser, saveUser };
+export { UserProvider, useUserState, useUserDispatch, doLogin, doLogOut, getAuthorizedUser, isAuthorizedUser, saveUser };
