@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useUserState, useUserDispatch, doLogin, getAuthorizedUser, isAuthorizedUser } from "../context/user-provider";
-import { LogoutComponent } from "./logout";
 import logo from "./../assets/boomi-website-logo.svg";
 import { Redirect } from "react-router-dom";
 
@@ -10,7 +9,6 @@ export const LoginComponent: React.FC = () => {
 
     const userState = useUserState();
     const dispatch = useUserDispatch();
-    const [authUser, setAuthUser] = useState(userState.user);
     const [shouldRedirect, setShouldRedirct] = useState(false);
 
     useEffect(() => {
@@ -45,12 +43,6 @@ export const LoginComponent: React.FC = () => {
         });
     };
 
-    const handleLogout = () => {
-        userState.user = getAuthorizedUser();
-        setAuthUser(userState.user);
-        console.log("logged out.");
-    };
-
     return (
         <React.Fragment>
             {
@@ -79,25 +71,19 @@ export const LoginComponent: React.FC = () => {
                         <div className="col-6 offset-3 pad-top">
                             <button className="btn btn-primary navy login" onClick={handleLogin} type="button" disabled={userState.loading}>
                                 {
-                                    !userState.loading &&
+                                    userState.loading &&
                                     <span>
                                         <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                         <span>authenticating</span>
                                     </span>
                                 }
                                 {
-                                    userState.loading &&
+                                    !userState.loading &&
                                     <span>
                                         <span>sign in</span>
                                     </span>
                                 }
                                 </button>
-                        </div>
-                        <div className="col-6 offset-3 pad-top">
-                            {/* {authUser.authorized === true && (
-                                // <LogoutComponent onLogout={handleLogout} />
-                                <Redirect to="/Home" />
-                            )} */}
                         </div>
                     </div>
                 </div>

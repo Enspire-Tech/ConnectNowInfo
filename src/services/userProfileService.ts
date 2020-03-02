@@ -1,5 +1,5 @@
 import http from "./httpService";
-import { apiUrlProduction, apiUrlTimLocalHost } from "../config.json";
+import { apiUrlTimLocalHost } from "../config.json";
 import IUserProfile from "./../interfaces/IUserProfile";
 import { AxiosPromise } from "axios";
 import IChangePassword from "./../interfaces/IChangePassword";

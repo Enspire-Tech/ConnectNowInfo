@@ -1,6 +1,6 @@
-export interface Session {
+export interface ISession {
     isAuthenticated?: boolean;
     redirectPathOnAuthentication?: string;
   }
   
-  export const initialSession: Session = {}
+  export const initialSession: ISession = {}

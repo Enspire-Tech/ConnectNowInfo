@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "./../assets/boomi-website-logo.svg";
 import { LogoutComponent } from "./logout";
-import { Redirect } from "react-router";
 
 export const NavBar: React.FC = () => {
 
