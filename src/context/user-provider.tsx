@@ -119,7 +119,7 @@ const doLogin = async (dispatch: any, state: IState) => {
             firstName: "Test",
             lastName: "User",
             email: "testuser@connectnow.info",
-            password: state.user.password,
+            // password: state.user.password,
             active: true,
             organization: "Dell Boomi",
             accessLevel: 1,
@@ -131,8 +131,7 @@ const doLogin = async (dispatch: any, state: IState) => {
         dispatch({type: "storeUser", userState: {user: testUser}});
         // dispatch({type: "updateState", userState: {user: login.data}});
         dispatch({type: "done"});
-    }
-    else {
+    } else {
         const login = await logIn(state.user.email || "", state.user.password);
         dispatch({type: "storeUser", userState: {user: login.data}});
         dispatch({type: "updateState", userState: {user: login.data}});

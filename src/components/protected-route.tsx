@@ -9,7 +9,7 @@ export interface ProtectedRouteProps extends RouteProps {
 
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = props => {
   const currentLocation = useLocation();
-  
+
   let redirectPath = props.redirectPathOnAuthentication;
   if (!props.isAuthenticated) {
     redirectPath = props.authenticationPath;
