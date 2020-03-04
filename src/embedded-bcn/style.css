@@ -346,6 +346,9 @@ a.dropdown-item:focus {
 }
 */
 @media only screen and (max-width: 992px) {
+  #right_column {
+    display: none;
+  }
   .toggle-right-column {
     display: none;
   }
