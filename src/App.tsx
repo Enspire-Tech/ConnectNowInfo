@@ -6,14 +6,14 @@ import { Documentation } from "./components/documentation";
 import { LoginComponent } from "./components/login-component";
 import { isAuthorizedUser } from "./context/user-provider";
 import { Switch, Route } from "react-router";
-import ProtectedRoute, { ProtectedRouteProps } from "./components/protected-route";
+import ProtectedRoute, { IProtectedRouteProps } from "./components/protected-route";
 
 import "./styles/App.css";
 import "./styles/styles.css";
 
 const CNApp: React.FC = () => {
 
-  const defaultProtectedRouteProps: ProtectedRouteProps = {
+  const defaultProtectedRouteProps: IProtectedRouteProps = {
     isAuthenticated: isAuthorizedUser(),
     authenticationPath: "/",
     redirectPathOnAuthentication: "/Home"

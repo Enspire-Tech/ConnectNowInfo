@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Redirect, Route, RouteProps, useLocation } from "react-router";
 
-export interface ProtectedRouteProps extends RouteProps {
+export interface IProtectedRouteProps extends RouteProps {
   isAuthenticated: boolean;
   authenticationPath: string;
-  redirectPathOnAuthentication: string
+  redirectPathOnAuthentication: string;
 }
 
-export const ProtectedRoute: React.FC<ProtectedRouteProps> = props => {
+export const ProtectedRoute: React.FC<IProtectedRouteProps> = (props) => {
   const currentLocation = useLocation();
 
   let redirectPath = props.redirectPathOnAuthentication;

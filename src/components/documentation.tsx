@@ -6,7 +6,7 @@ require ("../styles/documentation.css");
 export const Documentation: React.FC = () => {
         return (
             <React.Fragment>
-                <header className="header fixed-top">	    
+                <header className="header fixed-top">
                     <div className="branding docs-branding">
                         <div className="container-fluid position-relative py-2">
                             <div className="docs-logo-wrapper">
@@ -24,18 +24,18 @@ export const Documentation: React.FC = () => {
                     </div>
                 </header>
                 <div className="docs-wrapper">
-	    <div id="docs-sidebar" className="docs-sidebar">
-		    <div className="top-search-box d-lg-none p-3">
+<div id="docs-sidebar" className="docs-sidebar">
+    <div className="top-search-box d-lg-none p-3">
                 <form className="search-form">
-		            <input type="text" placeholder="Search the docs..." name="search" className="form-control search-input" />
-		            <button type="submit" className="btn search-btn" value="Search"><i className="fas fa-search"></i></button>
-		        </form>
+                    <input type="text" placeholder="Search the docs..." name="search" className="form-control search-input" />
+                    <button type="submit" className="btn search-btn" value="Search"><i className="fas fa-search"></i></button>
+                </form>
             </div>
-		    <nav id="docs-nav" className="docs-nav navbar">
-			    <ul className="section-items list-unstyled nav flex-column pb-3">
-				    <li className="nav-item section-title mt-3"><a className="nav-link scrollto active" href="#content" data-section-id="api"><span className="theme-icon-holder mr-2"><i className="fas fa-box"></i></span>API</a></li>
-				    <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-1">Attach Integration Pack to Environment</a></li>
-				    <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-2">Execute Integration Process</a></li>
+            <nav id="docs-nav" className="docs-nav navbar">
+                <ul className="section-items list-unstyled nav flex-column pb-3">
+                    <li className="nav-item section-title mt-3"><a className="nav-link scrollto active" href="#content" data-section-id="api"><span className="theme-icon-holder mr-2"><i className="fas fa-box"></i></span>API</a></li>
+                    <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-1">Attach Integration Pack to Environment</a></li>
+                    <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-2">Execute Integration Process</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-3">Get Available Integration Packs</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-4">Get Boomi Account Profile</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-5">Get Environments for Account</a></li>
@@ -52,34 +52,33 @@ export const Documentation: React.FC = () => {
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-16">Upsert Environment Extensions</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-17">Upsert Map Extensions</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-18">Upsert Process Schedule</a></li>
-			    </ul>
-		    </nav>
+                </ul>
+            </nav>
         </div>
-	    <div className="docs-content">
-		    <div className="container">
+        <div className="docs-content">
+            <div className="container">
                 <p>&nbsp;</p>
-			    <article className="docs-article" id="introduction">
-				    <header className="docs-header">
-					    <section className="docs-intro">
-						</section>
-				    </header>
-			    </article>
-			    <article className="docs-article" id="api">
-				    <header className="docs-header">
-					    <h1 className="docs-heading">API <span className="docs-time">Last updated: 2020-02-20</span></h1>
-					    <section className="docs-intro">
-						    <p>This section includes documentaiton for Boomi Connect Now's API services.</p>
-						</section>
-				    </header>
-				     <section className="docs-section" id="item-1-1">
-						<h2 className="section-heading">Attach Integration Pack to Environment</h2>
+                <article className="docs-article" id="introduction">
+                    <header className="docs-header">
+                        <section className="docs-intro"></section>
+                    </header>
+                </article>
+                <article className="docs-article" id="api">
+                    <header className="docs-header">
+                        <h1 className="docs-heading">API <span className="docs-time">Last updated: 2020-02-20</span></h1>
+                        <section className="docs-intro">
+                            <p>This section includes documentaiton for Boomi Connect Now's API services.</p>
+                        </section>
+                    </header>
+                    <section className="docs-section" id="item-1-1">
+                        <h2 className="section-heading">Attach Integration Pack to Environment</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/createIntegrationPackDeployment HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/createIntegrationPackDeployment HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -94,7 +93,6 @@ export const Documentation: React.FC = () => {
     "integrationPackId": "",
     "integrationPackOverrideName": ""
 }`}
-                                    
                                 </code>
                             </pre>
                         </div>
@@ -105,16 +103,16 @@ export const Documentation: React.FC = () => {
                             <li><strong className="mr-1">Integration Pack Id:</strong> <code>the Id of the integration pack to deploy as returned by <a className="internal-link" href="#content" data-section-id="item-1-3">Get Available Integration Packs</a>.</code></li>
                             <li><strong className="mr-1">Integration Pack Override Name:</strong> <code>the name to give to the integration pack instance being deployed. Applicable only to multi-install integration packs.</code></li>
                         </ul>
-					</section>					
-					<section className="docs-section" id="item-1-2">
-						<h2 className="section-heading">Execute Integration Process</h2>
+                    </section>
+                    <section className="docs-section" id="item-1-2">
+                        <h2 className="section-heading">Execute Integration Process</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/executeIntegrationProcess HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/executeIntegrationProcess HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -126,7 +124,7 @@ export const Documentation: React.FC = () => {
     "id": "",
     "auth": "...",
     "accountId": ""
-}`}                                   
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -135,16 +133,16 @@ export const Documentation: React.FC = () => {
                             <li><strong className="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
                             <li><strong className="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
                         </ul>
-					</section>					
-					<section className="docs-section" id="item-1-3">
-						<h2 className="section-heading">Get Available Integration Packs</h2>
+                    </section>
+                    <section className="docs-section" id="item-1-3">
+                        <h2 className="section-heading">Get Available Integration Packs</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>/ws/simple/getAllIPacksAvailableToAccount HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>/ws/simple/getAllIPacksAvailableToAccount HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -155,7 +153,7 @@ export const Documentation: React.FC = () => {
 {`{
     "auth": "...",
     "accountId": ""
-}`}                                                     
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -165,14 +163,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-4">
-						<h2 className="section-heading">Get Boomi Account Profile</h2>
+                        <h2 className="section-heading">Get Boomi Account Profile</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/getBoomiAccountProfile HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getBoomiAccountProfile HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -183,7 +181,7 @@ export const Documentation: React.FC = () => {
 {`{
     "auth": "...",
     "accountId": ""
-}`}                                                     
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -193,14 +191,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-5">
-						<h2 className="section-heading">Get Environments for Account</h2>
+                        <h2 className="section-heading">Get Environments for Account</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/getEnvironmentsForAccount HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getEnvironmentsForAccount HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -211,7 +209,7 @@ export const Documentation: React.FC = () => {
 {`{
     "auth": "...",
     "accountId": ""
-}`}                                                     
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -221,14 +219,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-6">
-						<h2 className="section-heading">Get Extended Connections for Installed Integration Pack</h2>
+                        <h2 className="section-heading">Get Extended Connections for Installed Integration Pack</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/getExtendedConnectionsForInstalledIPack HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getExtendedConnectionsForInstalledIPack HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -241,7 +239,7 @@ export const Documentation: React.FC = () => {
     "accountId": "",
     "id": "",
     "@type": ""
-}`}                                                                       
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -253,14 +251,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-7">
-						<h2 className="section-heading">Get Extended Cross Reference Tables for Installed Integration Pack</h2>
+                        <h2 className="section-heading">Get Extended Cross Reference Tables for Installed Integration Pack</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/getExtendedConnectionsForInstalledIPack HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getExtendedConnectionsForInstalledIPack HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -273,7 +271,7 @@ export const Documentation: React.FC = () => {
     "accountId": "",
     "id": "",
     "@type": ""
-}`}                                                                       
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -285,14 +283,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-8">
-						<h2 className="section-heading">Get Extended Maps for Installed Integration Pack</h2>
+                        <h2 className="section-heading">Get Extended Maps for Installed Integration Pack</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/getExtendedMapsForInstalledIPackHTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getExtendedMapsForInstalledIPackHTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -307,7 +305,6 @@ export const Documentation: React.FC = () => {
     "@type": "",
     "connection": [{}]
 }`}
-                                                                                             
                                 </code>
                             </pre>
                         </div>
@@ -320,14 +317,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-9">
-						<h2 className="section-heading">Get Extended Process Properties for Installed Integration Pack</h2>
+                        <h2 className="section-heading">Get Extended Process Properties for Installed Integration Pack</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/getExtendedProcessPropertiesForInstalledIPack /1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getExtendedProcessPropertiesForInstalledIPack /1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -340,7 +337,7 @@ export const Documentation: React.FC = () => {
     "accountId": "",
     "id": "",
     "@type": ""
-}`}                                                        
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -352,14 +349,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-10">
-						<h2 className="section-heading">Get Execution Records</h2>
+                        <h2 className="section-heading">Get Execution Records</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>/ws/simple/getProcessExecutionRecords HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>/ws/simple/getProcessExecutionRecords HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -371,7 +368,7 @@ export const Documentation: React.FC = () => {
     "date": "yyyy-MM-dd’T’hh:mm:ss.nnn",
     "auth": "...",
     "accountId": ""
-}`}                                            
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -382,14 +379,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-11">
-						<h2 className="section-heading">Get Installed Integration Packs</h2>
+                        <h2 className="section-heading">Get Installed Integration Packs</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>/ws/simple/getInstalledIPacks HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>/ws/simple/getInstalledIPacks HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -400,7 +397,7 @@ export const Documentation: React.FC = () => {
 {`{
     "auth": "...",
     "accountId": ""
-}`}                                                               
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -410,14 +407,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-12">
-						<h2 className="section-heading">Get OAuth2 Access Token URL</h2>
+                        <h2 className="section-heading">Get OAuth2 Access Token URL</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/getOAuth2AccessTokenURL HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getOAuth2AccessTokenURL HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -432,7 +429,7 @@ export const Documentation: React.FC = () => {
     "environmentId": "",
     "extensionGroupId": "",
     "fieldId": ""
-}`}                                                                                 
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -446,14 +443,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-13">
-						<h2 className="section-heading">Get Process Schedule</h2>
+                        <h2 className="section-heading">Get Process Schedule</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/getProcessSchedules HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getProcessSchedules HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -465,7 +462,7 @@ export const Documentation: React.FC = () => {
     "accountId": "",
     "auth”: "...",
     "id": ""
-}`}                                                                                                  
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -479,14 +476,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-14">
-						<h2 className="section-heading">Get Processes in a Deployed Integration Pack</h2>
+                        <h2 className="section-heading">Get Processes in a Deployed Integration Pack</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/getInstalledIPackInstanceProcesses HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getInstalledIPackInstanceProcesses HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -498,7 +495,7 @@ export const Documentation: React.FC = () => {
     "id": "",
     "auth": "...",
     "accountId": ""
-}`}                                                                                      
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -509,14 +506,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-15">
-						<h2 className="section-heading">Removed Installed Integration Pack Instance</h2>
+                        <h2 className="section-heading">Removed Installed Integration Pack Instance</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">DELETE:</strong> <code>ws/simple/deleteInstalledIPackInstance HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">DELETE:</strong> <code>ws/simple/deleteInstalledIPackInstance HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -528,7 +525,7 @@ export const Documentation: React.FC = () => {
     "id": "",
     "auth": "...",
     "accountId": ""
-}`}                                                                                      
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -539,14 +536,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-16">
-						<h2 className="section-heading">Upsert Environment Extensions</h2>
+                        <h2 className="section-heading">Upsert Environment Extensions</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/upsertEnvironmentExtensions HTTPS/1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/upsertEnvironmentExtensions HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -649,14 +646,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-17">
-						<h2 className="section-heading">Upsert Map Extensions</h2>
+                        <h2 className="section-heading">Upsert Map Extensions</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/upsertMapExtensions HTTPS 1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/upsertMapExtensions HTTPS 1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -733,7 +730,7 @@ export const Documentation: React.FC = () => {
                 }
             }
         ]
-}`}                                      
+}`}
                                 </code>
                             </pre>
                         </div>
@@ -746,14 +743,14 @@ export const Documentation: React.FC = () => {
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-18">
-						<h2 className="section-heading">Upsert Process Schedule</h2>
+                        <h2 className="section-heading">Upsert Process Schedule</h2>
                         <ul className="no-bullets">
-						    <li><strong className="mr-1">POST:</strong> <code>ws/simple/upsertProcessSchedules HTTPS 1.1</code></li>
-						    <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/upsertProcessSchedules HTTPS 1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
-						<ul className="no-bullets">
-						    <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
                             <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
                         </ul>
@@ -797,10 +794,10 @@ export const Documentation: React.FC = () => {
                             <li><strong className="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
                             <li><strong className="mr-1">Result:</strong> <code>an array of Schedule objects.</code></li>
                         </ul>
-					</section>
-			    </article>
-		    </div>
-	    </div>
+                    </section>
+                </article>
+            </div>
+        </div>
     </div>
             </React.Fragment>
           );
