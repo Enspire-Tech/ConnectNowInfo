@@ -345,12 +345,13 @@ a.dropdown-item:focus {
     padding-top: 30px;
 }
 */
-@media only screen and (max-width: 992px) {
+@media (max-width: 992px) {
   .toggle-right-column {
     display: none;
   }
   .widescreen-slide-container {
     margin-top: 0;
     padding: auto;
+    display: none;
   }
 }
