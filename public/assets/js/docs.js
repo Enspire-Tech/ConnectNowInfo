@@ -1,4 +1,3 @@
-
 $(window).on('load resize', function() {
    
     //Add/remove class based on browser size when load/resize
@@ -67,8 +66,4 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).ekkoLightbox();
     }); 
-
-    
-    
-
 });
