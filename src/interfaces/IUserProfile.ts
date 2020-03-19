@@ -10,6 +10,7 @@ interface IUserProfile {
     accessLevel?: number;
     message?: string;
     username?: string;
+    expiry?: Date;
 }
 
 export default IUserProfile;

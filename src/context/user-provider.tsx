@@ -1,6 +1,7 @@
 import React from "react";
 import IUser from "../interfaces/IUserProfile";
 import { logIn, upsert } from "../services/userProfileService";
+import cookie from "react-cookies";
 
 type Action = {type: "loading"} |
     {type: "logout"} |
@@ -74,7 +75,13 @@ const userReducer = (state: IState, action: Action): IState => {
             res.user = action.userState.user;
             if (res.user.authorized === true) {
                 res.user.password = "";
-                localStorage.setItem(AUTHORIZED_USER_KEY, JSON.stringify(res.user));
+                const expirationDate = new Date();
+                expirationDate.setDate(expirationDate.getDate() + 1);
+                res.user.expiry = expirationDate;
+                // const expirationDate = new Date();
+                // expirationDate.setDate(expirationDate.getDate() + 1);
+                // Cookies.set(AUTHORIZED_USER_KEY, JSON.stringify(res.user), { expires: expirationDate});
+                sessionStorage.setItem(AUTHORIZED_USER_KEY, JSON.stringify(res.user));
             }
             console.log(res.user);
             break;
@@ -95,9 +102,17 @@ const userReducer = (state: IState, action: Action): IState => {
 
 const getAuthorizedUser = () => {
     let user: IUser = { authorized: false, active: false };
-    const localUser = localStorage.getItem(AUTHORIZED_USER_KEY);
+    const localUser = sessionStorage.getItem(AUTHORIZED_USER_KEY);
+    console.log(localUser);
     if (localUser !== null) {
+        const currentDate = new Date();
         user = JSON.parse(localUser);
+        const userExpirationDate = user?.expiry ?? currentDate;
+        if (userExpirationDate >= currentDate) {
+            const tempUser: IUser = { authorized: false, active: false };
+            localStorage.removeItem(AUTHORIZED_USER_KEY);
+            user = tempUser;
+        }
     }
     return user;
 };
