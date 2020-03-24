@@ -46,6 +46,7 @@ export const Documentation: React.FC = () => {
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-9">Get Extended Process Properties for Installed Integration Pack</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-10">Get Execution Records</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-11">Get Installed Integration Packs</a></li>
+                    <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-20">Get Installer Token</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-12">Get OAuth2 Access Token URL</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-13">Get Process Schedule</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-14">Get Processes in a Deployed Integration Pack</a></li>
@@ -53,6 +54,7 @@ export const Documentation: React.FC = () => {
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-16">Upsert Environment Extensions</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-17">Upsert Map Extensions</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-18">Upsert Process Schedule</a></li>
+                    
                 </ul>
             </nav>
         </div>
@@ -814,6 +816,34 @@ export const Documentation: React.FC = () => {
                                 <code className="json hljs">
 {`{
     "id": "",
+    "auth": "...",
+    "accountId": ""
+}`}
+                                </code>
+                            </pre>
+                        </div>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong className="mr-1">AccountId:</strong> <code>the AAID of the account for which to retrieve Atom details.</code></li>
+                        </ul>
+                    </section>
+                    <section className="docs-section" id="item-1-20">
+                        <h2 className="section-heading">Get Installer Token</h2>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getInstallerToken HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div className="docs-code-block">
+                            <pre className="shadow-lg rounded">
+                                <code className="json hljs">
+{`{
     "auth": "...",
     "accountId": ""
 }`}
