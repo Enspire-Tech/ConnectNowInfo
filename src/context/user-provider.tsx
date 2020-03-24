@@ -1,7 +1,6 @@
 import React from "react";
 import IUser from "../interfaces/IUserProfile";
 import { logIn, upsert } from "../services/userProfileService";
-import cookie from "react-cookies";
 
 type Action = {type: "loading"} |
     {type: "logout"} |
@@ -107,7 +106,7 @@ const getAuthorizedUser = () => {
     if (localUser !== null) {
         const currentDate = new Date();
         user = JSON.parse(localUser);
-        const userExpirationDate = user?.expiry ?? currentDate;
+        const userExpirationDate = user.expiry || currentDate;
         if (userExpirationDate >= currentDate) {
             const tempUser: IUser = { authorized: false, active: false };
             localStorage.removeItem(AUTHORIZED_USER_KEY);
@@ -124,7 +123,7 @@ const isAuthorizedUser = () => {
 
 const doLogin = async (dispatch: any, state: IState) => {
 
-    console.log("do login.");
+    // console.log("do login.");
 
     dispatch({type: "loading"});
     if ((state.user.email === "dellboomi") && (state.user.password === "connectnow")) {

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./../assets/boomi-website-logo.svg";
+import logo from "./../assets/media/boomi-website-logo.svg";
 import { LogoutComponent } from "./logout";
 
 export const NavBar: React.FC = () => {

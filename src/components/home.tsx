@@ -1,7 +1,9 @@
 import React from "react";
-import jumbotron_background from "./../assets/jumbotron-background.jpg";
+import jumbotron_background from "./../assets/media/Boomi-Solutions-Boomi-Connect-Now-Header.jpg";
 import "../styles/home.css";
 import { NavBar } from "./navbar";
+import ReactPlayer from "react-player";
+const bcnVideoUrl = "./assets/media/Boomi_preview.mp4";
 
 export const Home: React.FC = () => {
     return (
@@ -19,8 +21,8 @@ export const Home: React.FC = () => {
           <div className="jumbotron">
             <div className="jumbotron-particles">
               <div className="row">
-                <div className="col-1">&nbsp;</div>
-                <div className="col-lg-6 col-md-8 col-sm-12">
+                <div className="col-sm-1">&nbsp;</div>
+                <div className="col-lg-8 col-sm-12">
                   <h1 className="display-1">Connect Now</h1>
                   <p className="lead">
                     Turn business users into citizen integrators with self-service
@@ -31,7 +33,20 @@ export const Home: React.FC = () => {
             </div>
           </div>
           <div className="clearfix"></div>
-          <div className="container">
+          <div className="row">
+                <div className="col-lg-12 col-sm-12">
+                  <ReactPlayer
+                    url={bcnVideoUrl}
+                    width="100%"
+                    height="100%"
+                    playing
+                    loop={true}
+                    controls={false}
+                    volume={0}
+                  />
+                </div>
+              </div>
+            <div className="container">
             <div className="row mt-10">
               <div className="col-lg-6 col-md-6 col-sm-12 p-4 pl-5">
                 <p className="lead-text">
@@ -129,7 +144,8 @@ export const Home: React.FC = () => {
               ></div>
               <div className="col-lg-6 col-md-6 col-sm-12 p-4">
                 <p className="lead-tagline">Embedded Example</p>
-                <p className="lead-text">Boomi Connect Now</p>
+                <p className="lead-text">Boomi Connect Now <br />
+                  <span className="smaller">Embedded</span></p>
                 <p>
                   We can embed Boomi Connect Now in existing web apps without using
                   inline frames (iframe). Connect Now's CSS code is namespaced so it
@@ -151,8 +167,10 @@ export const Home: React.FC = () => {
             <div className="row mt-10">
               <div className="col-lg-6 col-md-6 col-sm-12 p-4 pl-5">
                 <p className="lead-tagline">Test</p>
-                <p className="lead-text">Boomi Connect Now</p>
-                <p>This is the Connect Now Test site</p>
+                <p className="lead-text">Boomi Connect Now
+                  <br />
+                    <span className="smaller">Pre-Release Candidate</span>
+                </p>
                 <p className="text-center">
                   <a
                     href="https://flow.manywho.com/760e8d2f-c96c-4b5c-b2d7-ac64b0dc8a90/play/bcn-test?flow-id=5f1f3608-da36-4de8-ac1c-2ba3e9a0bc62"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useUserState, useUserDispatch, doLogin, getAuthorizedUser, isAuthorizedUser } from "../context/user-provider";
-import logo from "./../assets/boomi-website-logo.svg";
+import logo from "./../assets/media/boomi-website-logo.svg";
 import { Redirect } from "react-router-dom";
 
 require ("../styles/login.css");

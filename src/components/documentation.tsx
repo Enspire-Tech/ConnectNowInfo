@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./../assets/boomi-website-logo.svg";
+import logo from "./../assets/media/boomi-website-logo.svg";
 
 require ("../styles/documentation.css");
 
@@ -36,6 +36,7 @@ export const Documentation: React.FC = () => {
                     <li className="nav-item section-title mt-3"><a className="nav-link scrollto active" href="#content" data-section-id="api"><span className="theme-icon-holder mr-2"><i className="fas fa-box"></i></span>API</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-1">Attach Integration Pack to Environment</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-2">Execute Integration Process</a></li>
+                    <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-19">Get Atoms for Account</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-3">Get Available Integration Packs</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-4">Get Boomi Account Profile</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-5">Get Environments for Account</a></li>
@@ -65,7 +66,7 @@ export const Documentation: React.FC = () => {
                 </article>
                 <article className="docs-article" id="api">
                     <header className="docs-header">
-                        <h1 className="docs-heading">API <span className="docs-time">Last updated: 2020-02-20</span></h1>
+                        <h1 className="docs-heading">API <span className="docs-time">Last updated: 2020-03-23</span></h1>
                         <section className="docs-intro">
                             <p>This section includes documentaiton for Boomi Connect Now's API services.</p>
                         </section>
@@ -793,6 +794,35 @@ export const Documentation: React.FC = () => {
                             <li><strong className="mr-1">AccountId:</strong> <code>the AAID of the sub-account to which the integration pack was deployed.</code></li>
                             <li><strong className="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
                             <li><strong className="mr-1">Result:</strong> <code>an array of Schedule objects.</code></li>
+                        </ul>
+                    </section>
+                    <section className="docs-section" id="item-1-19">
+                        <h2 className="section-heading">Get Atoms for Account</h2>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getAtomsForAccount HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div className="docs-code-block">
+                            <pre className="shadow-lg rounded">
+                                <code className="json hljs">
+{`{
+    "id": "",
+    "auth": "...",
+    "accountId": ""
+}`}
+                                </code>
+                            </pre>
+                        </div>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
+                            <li><strong className="mr-1">AccountId:</strong> <code>the AAID of the account for which to retrieve Atom details.</code></li>
                         </ul>
                     </section>
                 </article>
