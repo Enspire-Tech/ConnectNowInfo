@@ -859,7 +859,7 @@ export const Documentation: React.FC = () => {
                     <section className="docs-section" id="item-1-21">
                         <h2 className="section-heading">Get Atom Detail</h2>
                         <ul className="no-bullets">
-                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getInstallerToken HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/getAtomDetail HTTPS/1.1</code></li>
                             <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
                         </ul>
                         <h3>HEADERS</h3>
