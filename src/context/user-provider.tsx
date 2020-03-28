@@ -55,7 +55,7 @@ const userReducer = (state: IState, action: Action): IState => {
 
     switch (action.type) {
         case "clearUser": {
-            localStorage.removeItem(AUTHORIZED_USER_KEY);
+            sessionStorage.removeItem(AUTHORIZED_USER_KEY);
             break;
         }
         case "done": {
@@ -68,6 +68,7 @@ const userReducer = (state: IState, action: Action): IState => {
         }
         case "logout": {
             res.user = {authorized: false, active: false, failedAuthentication: false};
+            sessionStorage.removeItem(AUTHORIZED_USER_KEY);
             break;
         }
         case "storeUser": {
@@ -77,9 +78,6 @@ const userReducer = (state: IState, action: Action): IState => {
                 const expirationDate = new Date();
                 expirationDate.setDate(expirationDate.getDate() + 1);
                 res.user.expiry = expirationDate;
-                // const expirationDate = new Date();
-                // expirationDate.setDate(expirationDate.getDate() + 1);
-                // Cookies.set(AUTHORIZED_USER_KEY, JSON.stringify(res.user), { expires: expirationDate});
                 sessionStorage.setItem(AUTHORIZED_USER_KEY, JSON.stringify(res.user));
                 res.user.failedAuthentication = false;
             } else {
