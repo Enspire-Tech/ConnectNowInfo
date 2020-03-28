@@ -58,7 +58,7 @@ export const LoginComponent: React.FC = () => {
                             </h1>
                         </div>
                         <div className="col-6 offset-3 login-container pad-bottom">
-                            { userState.user.authorized ? "Hello authed user!" : "Please sign in" }
+                            { userState.user.authorized ? "Hello authed user!" : userState.user.failedAuthentication ? "Username or password were incorrect." : "Please sign in" }
                         </div>
                         <div className="col-6 offset-3">
                             <label htmlFor="username">Username</label>

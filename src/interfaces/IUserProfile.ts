@@ -11,6 +11,7 @@ interface IUserProfile {
     message?: string;
     username?: string;
     expiry?: Date;
+    failedAuthentication: boolean;
 }
 
 export default IUserProfile;
