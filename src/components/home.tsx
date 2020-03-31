@@ -9,7 +9,7 @@ export const Home: React.FC = () => {
     return (
         <React.Fragment>
           <NavBar />
-          <div className="row">
+          <div className="row outer-container">
             <div className="col-12 align-items-end">
               <div id="jumbotron_image_container">
                 <div id="jumbotron_image" className="align-items-center">
@@ -34,21 +34,23 @@ export const Home: React.FC = () => {
           </div>
           <div className="clearfix"></div>
           <div className="row">
-                <div className="col-lg-12 col-sm-12">
-                  <ReactPlayer
-                    url={bcnVideoUrl}
-                    width="100%"
-                    height="100%"
-                    playing
-                    loop={true}
-                    controls={false}
-                    volume={0}
-                  />
-                </div>
+              <div className="col-lg-2 col-sm-12"></div>
+              <div className="col-lg-8 col-sm-12">
+                <ReactPlayer
+                  url={bcnVideoUrl}
+                  width="100%"
+                  height="100%"
+                  playing
+                  loop={true}
+                  controls={false}
+                  volume={0}
+                />
               </div>
+              <div className="col-lg-2 col-sm-12"></div>
+            </div>
             <div className="container">
             <div className="row mt-10">
-              <div className="col-lg-6 col-md-6 col-sm-12 p-4 pl-5">
+              <div className="col-lg-6 col-sm-12 p-4 pl-5">
                 <p className="lead-text">
                   Boomi Connect Now
                   <br />
@@ -75,7 +77,7 @@ export const Home: React.FC = () => {
                 </p>
               </div>
               <div
-                className="col-lg-6 col-md-6 col-sm-12 img-page-cn-productions"
+                className="col-lg-6 col-sm-12 img-page-cn-productions"
                 title="CN Productions"
               >
                 &nbsp;
@@ -84,12 +86,12 @@ export const Home: React.FC = () => {
             <hr className="my-4" />
             <div className="row mt-10">
               <div
-                className="col-lg-6 col-md-6 col-sm-12 align-items-end img-page-service-desk"
+                className="col-lg-6 col-sm-12 align-items-end img-page-service-desk"
                 title="Service Desk"
               >
                 &nbsp;
               </div>
-              <div className="col-lg-6 col-md-6 col-sm-12 p-4">
+              <div className="col-lg-6 col-sm-12 p-4">
                 <p className="lead-tagline">Always Ready</p>
                 <p className="lead-text">Contact Support</p>
                 <p>
@@ -111,7 +113,7 @@ export const Home: React.FC = () => {
             </div>
             <hr className="my-4" />
             <div className="row mt-10">
-              <div className="col-lg-6 col-md-6 col-sm-12 p-4">
+              <div className="col-lg-6 col-sm-12 p-4">
                 <p className="lead-tagline">Documented Processes</p>
                 <p className="lead-text">API Reference</p>
                 <p>
@@ -130,7 +132,7 @@ export const Home: React.FC = () => {
                 </p>
               </div>
               <div
-                className="col-lg-6 col-md-6 col-sm-12 align-items-end img-page-documentation"
+                className="col-lg-6 col-sm-12 align-items-end img-page-documentation"
                 title="Service Desk"
               >
                 &nbsp;
@@ -139,10 +141,9 @@ export const Home: React.FC = () => {
             <hr className="my-4" />
             <div className="row mt-10">
               <div
-                className="col-lg-6 col-md-6 col-sm-12 img-page-cn-solutions"
-                title="CN Solutions"
-              ></div>
-              <div className="col-lg-6 col-md-6 col-sm-12 p-4">
+                className="col-lg-6 col-sm-12 img-page-cn-solutions"
+                title="CN Solutions"></div>
+              <div className="col-lg-6 col-sm-12 p-4">
                 <p className="lead-tagline">Embedded Example</p>
                 <p className="lead-text">Boomi Connect Now <br />
                   <span className="smaller">Embedded</span></p>
@@ -165,7 +166,7 @@ export const Home: React.FC = () => {
             </div>
             <hr className="my-4" />
             <div className="row mt-10">
-              <div className="col-lg-6 col-md-6 col-sm-12 p-4 pl-5">
+              <div className="col-lg-6 col-sm-12 p-4 pl-5">
                 <p className="lead-tagline">Test</p>
                 <p className="lead-text">Boomi Connect Now
                   <br />
@@ -183,9 +184,8 @@ export const Home: React.FC = () => {
                 </p>
               </div>
               <div
-                className="col-lg-6 col-md-6 col-sm-12 img-page-cn-productions"
-                title="CN Productions"
-              >
+                className="col-lg-6 col-sm-12 img-page-cn-productions"
+                title="CN Productions">
                 &nbsp;
               </div>
             </div>
