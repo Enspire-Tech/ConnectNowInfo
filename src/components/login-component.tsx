@@ -41,6 +41,8 @@ export const LoginComponent: React.FC = () => {
             }
             // setAuthUser(userState.user);
         });
+
+        setInterval(() => { dispatch({type: "done"}); }, 1000);
     };
 
     return (

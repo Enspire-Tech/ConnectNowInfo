@@ -83,7 +83,7 @@ const userReducer = (state: IState, action: Action): IState => {
             } else {
                 res.user.failedAuthentication = true;
             }
-            console.log(res.user);
+            // console.log(res.user);
             break;
         }
         case "updateState": {
@@ -154,13 +154,12 @@ const doLogin = async (dispatch: any, state: IState) => {
         // const login = await logIn(state.user.email || "", state.user.password);
         dispatch({type: "storeUser", userState: {user: testUser}});
         // dispatch({type: "updateState", userState: {user: login.data}});
-        dispatch({type: "done"});
     } else {
         const login = await logIn(state.user.email || "", state.user.password);
         dispatch({type: "storeUser", userState: {user: login.data}});
         dispatch({type: "updateState", userState: {user: login.data}});
-        dispatch({type: "done"});
     }
+    dispatch({type: "done"});
 
 };
 
