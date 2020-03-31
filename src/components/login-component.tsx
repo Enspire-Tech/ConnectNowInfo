@@ -12,7 +12,7 @@ export const LoginComponent: React.FC = () => {
     const [shouldRedirect, setShouldRedirct] = useState(false);
 
     useEffect(() => {
-        console.log("use effect");
+        // console.log("use effect");
         const isAuthorized = isAuthorizedUser();
         setShouldRedirct(isAuthorized);
       }, [shouldRedirect]);
