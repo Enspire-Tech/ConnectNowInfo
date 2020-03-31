@@ -13,7 +13,8 @@ export const LogoutComponent = (props: ILogoutProps) => {
     const handleLogout = (e: any) => {
         const emptyUser: IUserProfile = {
             authorized: false,
-            active: false
+            active: false,
+            failedAuthentication: false
         };
         state.user = emptyUser;
         e.preventDefault();

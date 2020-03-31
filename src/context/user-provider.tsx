@@ -21,7 +21,7 @@ const UserDispatchContext = React.createContext<Dispatch | undefined>(undefined)
 
 const UserProvider = ({children}: IUserProviderProps) => {
 
-    const initialState: IState = { user: {authorized: false, active: false}, loading: false };
+    const initialState: IState = { user: {authorized: false, active: false, failedAuthentication: false}, loading: false };
     const [state, dispatch] = React.useReducer(userReducer, initialState );
 
     return (
@@ -55,7 +55,7 @@ const userReducer = (state: IState, action: Action): IState => {
 
     switch (action.type) {
         case "clearUser": {
-            localStorage.removeItem(AUTHORIZED_USER_KEY);
+            sessionStorage.removeItem(AUTHORIZED_USER_KEY);
             break;
         }
         case "done": {
@@ -67,7 +67,8 @@ const userReducer = (state: IState, action: Action): IState => {
             break;
         }
         case "logout": {
-            res.user = {authorized: false, active: false};
+            res.user = {authorized: false, active: false, failedAuthentication: false};
+            sessionStorage.removeItem(AUTHORIZED_USER_KEY);
             break;
         }
         case "storeUser": {
@@ -77,10 +78,10 @@ const userReducer = (state: IState, action: Action): IState => {
                 const expirationDate = new Date();
                 expirationDate.setDate(expirationDate.getDate() + 1);
                 res.user.expiry = expirationDate;
-                // const expirationDate = new Date();
-                // expirationDate.setDate(expirationDate.getDate() + 1);
-                // Cookies.set(AUTHORIZED_USER_KEY, JSON.stringify(res.user), { expires: expirationDate});
                 sessionStorage.setItem(AUTHORIZED_USER_KEY, JSON.stringify(res.user));
+                res.user.failedAuthentication = false;
+            } else {
+                res.user.failedAuthentication = true;
             }
             console.log(res.user);
             break;
@@ -90,7 +91,7 @@ const userReducer = (state: IState, action: Action): IState => {
             break;
         }
         default: {
-            res.user = {authorized: false, active: false};
+            res.user = {authorized: false, active: false, failedAuthentication: false};
             throw new Error(`Unhandled action type: ${action.type}`);
         }
     }
@@ -100,7 +101,7 @@ const userReducer = (state: IState, action: Action): IState => {
 };
 
 const getAuthorizedUser = () => {
-    let user: IUser = { authorized: false, active: false };
+    let user: IUser = { authorized: false, active: false, failedAuthentication: false };
     const localUser = sessionStorage.getItem(AUTHORIZED_USER_KEY);
     console.log(localUser);
     if (localUser !== null) {
@@ -108,7 +109,7 @@ const getAuthorizedUser = () => {
         user = JSON.parse(localUser);
         const userExpirationDate = user.expiry || currentDate;
         if (userExpirationDate >= currentDate) {
-            const tempUser: IUser = { authorized: false, active: false };
+            const tempUser: IUser = { authorized: false, active: false, failedAuthentication: false };
             localStorage.removeItem(AUTHORIZED_USER_KEY);
             user = tempUser;
         }
@@ -126,20 +127,29 @@ const doLogin = async (dispatch: any, state: IState) => {
     // console.log("do login.");
 
     dispatch({type: "loading"});
-    if ((state.user.email === "dellboomi") && (state.user.password === "connectnow")) {
-        const testUser = {
-            id: "test_id",
-            authorized: true,
-            firstName: "Test",
-            lastName: "User",
-            email: "testuser@connectnow.info",
-            // password: state.user.password,
-            active: true,
-            organization: "Dell Boomi",
-            accessLevel: 1,
-            message: "",
-            username: state.user.email
-        };
+    let testUser;
+    if (state.user.email === "dellboomi") {
+        if (state.user.password === "connectnow") {
+            testUser = {
+                id: "test_id",
+                authorized: true,
+                firstName: "Test",
+                lastName: "User",
+                email: "testuser@connectnow.info",
+                // password: state.user.password,
+                active: true,
+                organization: "Dell Boomi",
+                accessLevel: 1,
+                message: "",
+                username: state.user.email,
+                failedAuthorization: false
+            };
+        } else {
+            testUser = {
+                authorized: false,
+                failedAuthorization: true
+            };
+        }
 
         // const login = await logIn(state.user.email || "", state.user.password);
         dispatch({type: "storeUser", userState: {user: testUser}});
@@ -160,7 +170,8 @@ const doLogOut = async (dispatch: any) => {
 
     const emptyUser: IUser = {
         authorized: false,
-        active: false
+        active: false,
+        failedAuthentication: false
     };
 
     dispatch({type: "updateState", userState: {user: emptyUser}});
