@@ -10,10 +10,20 @@ $(document).ready(function() {
                 $("#center_column").addClass("col-lg-9");
             }, 250);
             
-            $("#right_column").removeClass("slide-in");
-            $("#right_column").addClass("slide-out");
+            setTimeout(function () {
+                $("#right_column").removeClass("slide-in");
+                $("#right_column").addClass("slide-out");
+            }, 250);
+            
+            setTimeout(function () {
+                $("#right_column").addClass("hide");
+            }, 250);
         }
         else {
+
+            setTimeout(function () {
+                $("#right_column").removeClass("hide");
+            }, 250);
 
             setTimeout(function () {
                 $("#right_column").removeClass("slide-out");
