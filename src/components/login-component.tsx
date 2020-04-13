@@ -87,6 +87,35 @@ export const LoginComponent: React.FC = () => {
                                 }
                                 </button>
                         </div>
+                        <div className="col-6 offset-3 login-container pad-top">
+                            <p>
+                                <a
+                                    href="/Documentation"
+                                    title="Service Desk"
+                                    target="blank"
+                                >
+                                    API Reference
+                                </a>
+                            </p>
+                            <p>
+                                <a
+                                    href="./embedded-bcn/index.html"
+                                    title="CN Solutions"
+                                    target="blank"
+                                >
+                                    Boomi Connect Now Embedded
+                                </a>
+                            </p>
+                            <p>
+                                <a
+                                    href="https://flow.manywho.com/abc01a4e-3f09-4f37-a175-643eae3edfcb/play/GA105?flow-id=5f1f3608-da36-4de8-ac1c-2ba3e9a0bc62"
+                                    title="CN Production"
+                                    target="blank"
+                                >
+                                    Boomi Connect Now Production
+                                </a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             }
