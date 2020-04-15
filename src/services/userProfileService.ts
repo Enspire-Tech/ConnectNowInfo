@@ -1,10 +1,10 @@
 import http from "./httpService";
-import { apiTimLocalHost, apiUrlProduction } from "../config.json";
+import { apiUrlProduction } from "../config.json";
 import IUserProfile from "./../interfaces/IUserProfile";
 import { AxiosPromise } from "axios";
 import IChangePassword from "./../interfaces/IChangePassword";
 
-const apiEndpoint = apiTimLocalHost + "UserProfile";
+const apiEndpoint = apiUrlProduction + "UserProfile";
 
 const appendMethod = (method: string) => {
     return `${apiEndpoint}/${method}`;
