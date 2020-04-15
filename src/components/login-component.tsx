@@ -17,7 +17,7 @@ export const LoginComponent: React.FC = () => {
         setShouldRedirct(isAuthorized);
       }, [shouldRedirect]);
 
-    const handleBlur = (e: any) => {
+    const handleChange = (e: any) => {
         switch (e.target.name) {
             case "username":
                 userState.user.email = e.target.value;
@@ -34,6 +34,7 @@ export const LoginComponent: React.FC = () => {
 
     const handleLogin = (e: any) => {
         e.preventDefault();
+        console.log(userState.user);
         doLogin(dispatch, {user: userState.user}).then(() => {
             userState.user = getAuthorizedUser();
             if (userState.user.authorized) {
@@ -42,7 +43,9 @@ export const LoginComponent: React.FC = () => {
             // setAuthUser(userState.user);
         });
 
-        setInterval(() => { dispatch({type: "done"}); }, 1000);
+        setInterval(() => {
+            dispatch({type: "done"});
+        }, 100);
     };
 
     return (
@@ -64,11 +67,11 @@ export const LoginComponent: React.FC = () => {
                         </div>
                         <div className="col-6 offset-3">
                             <label htmlFor="username">Username</label>
-                            <input name="username" id="username" className="form-control" type="text" onBlur={handleBlur}></input>
+                            <input name="username" id="username" className="form-control" type="text" onChange={handleChange}></input>
                         </div>
                         <div className="col-6 offset-3 pad-top">
                             <label htmlFor="password">Password</label>
-                            <input name="password" id="password" className="form-control" type="password" onBlur={handleBlur}></input>
+                            <input name="password" id="password" className="form-control" type="password" onChange={handleChange}></input>
                         </div>
                         <div className="col-6 offset-3 pad-top">
                             <button className="btn btn-primary navy login" onClick={handleLogin} type="button" disabled={userState.loading}>
