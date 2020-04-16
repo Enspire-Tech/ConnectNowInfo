@@ -34,7 +34,6 @@ export const LoginComponent: React.FC = () => {
 
     const handleLogin = (e: any) => {
         e.preventDefault();
-        console.log(userState.user);
         doLogin(dispatch, {user: userState.user}).then(() => {
             userState.user = getAuthorizedUser();
             if (userState.user.authorized) {

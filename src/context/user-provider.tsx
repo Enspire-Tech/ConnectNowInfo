@@ -157,8 +157,9 @@ const doLogin = async (dispatch: any, state: IState) => {
     } else {
 
         const login = await logIn(state.user.email || "", state.user.password);
-        dispatch({type: "storeUser", userState: {user: login.data}});
-        dispatch({type: "updateState", userState: {user: login.data}});
+        console.log("login: " + JSON.stringify(login));
+        dispatch({type: "storeUser", userState: {user: login}});
+        dispatch({type: "updateState", userState: {user: login}});
     }
     dispatch({type: "done"});
 
