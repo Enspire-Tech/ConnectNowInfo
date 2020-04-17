@@ -57,10 +57,8 @@ const logIn = async (userName: string, password?: string): Promise<IUserProfile>
 
     return $.ajax(settings).done((response: any) => {
         if (response.errorMessage) {
-            console.log("<component name> error", response.errorMessage);
+            console.log("user log-in error", response.errorMessage);
             console.log("settings", settings);
-            // notify user if appropriate
-            // remove wait spinner
         } else {
             returnUser = response;
             returnUser.failedAuthentication = !response.authorized;
