@@ -1,5 +1,5 @@
 {
-    "apiKey": "19Oe6ZLnucaM9c4l1s4s389XOET29vJC32bE41UJ",
-    "apiTimLocalHost": "http://localhost:99/api/",
-    "apiUrlProduction": "https://u1kj5a7f7h.execute-api.us-west-2.amazonaws.com/dev/api/"
+    "apiKey": "oInnN65ogz3iMbe0XlPHs7pLKoqKqola1bGfnjn6",
+    "apiTimLocalHost": "http://localhost:99/api",
+    "apiUrlProduction": "https://u1kj5a7f7h.execute-api.us-west-2.amazonaws.com/Prod/api"
 }

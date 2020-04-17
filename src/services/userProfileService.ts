@@ -1,43 +1,13 @@
 import settings from "./httpService";
-import { apiUrlProduction, apiTimLocalHost } from "../config.json";
+import { apiUrlProduction } from "../config.json";
 import IUserProfile from "./../interfaces/IUserProfile";
-import IChangePassword from "./../interfaces/IChangePassword";
+// import IChangePassword from "./../interfaces/IChangePassword";
 
-const apiEndpoint = apiTimLocalHost + "UserProfile";
+const apiEndpoint = apiUrlProduction;
 
 const appendMethod = (method: string) => {
     return `${apiEndpoint}/${method}`;
 };
-
-/*
-
-const getUser = (id: string): AxiosPromise<IUserProfile> => {
-    return http.get(appendMethod("UserById/" + id));
-};
-
-const updatePassword = (changePassword: IChangePassword) => {
-    const object = {
-        id: changePassword.id,
-        email: changePassword.email,
-        newPassword: changePassword.newPassword,
-        confirmNewPassword: changePassword.confirmNewPassword,
-        minLength: 5
-    };
-
-    return http.post(appendMethod("SetPassword"), object);
-};
-
-const updateNameEmail = (userProfile: IUserProfile) => {
-    const object = {
-        id: userProfile.id,
-        email: userProfile.email,
-        firstName: userProfile.firstName,
-        lastName: userProfile.lastName
-    };
-
-    return http.post(appendMethod("SetNameEmail"), object);
-};
-*/
 
 const logIn = async (userName: string, password?: string): Promise<IUserProfile> => {
     const user = {
@@ -45,7 +15,7 @@ const logIn = async (userName: string, password?: string): Promise<IUserProfile>
         accessToken: password
     };
 
-    settings.url = appendMethod("Login");
+    settings.url = appendMethod("userprofile/login");
     settings.method = "POST";
     settings.data = JSON.stringify(user);
 
