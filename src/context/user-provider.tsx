@@ -103,7 +103,6 @@ const userReducer = (state: IState, action: Action): IState => {
 const getAuthorizedUser = () => {
     let user: IUser = { authorized: false, active: false, failedAuthentication: false };
     const localUser = sessionStorage.getItem(AUTHORIZED_USER_KEY);
-    console.log(localUser);
     if (localUser !== null) {
         const currentDate = new Date();
         user = JSON.parse(localUser);
@@ -147,7 +146,8 @@ const doLogin = async (dispatch: any, state: IState) => {
         } else {
             testUser = {
                 authorized: false,
-                failedAuthorization: true
+                failedAuthorization: true,
+                username: state.user.email
             };
         }
 
@@ -155,9 +155,11 @@ const doLogin = async (dispatch: any, state: IState) => {
         dispatch({type: "storeUser", userState: {user: testUser}});
         // dispatch({type: "updateState", userState: {user: login.data}});
     } else {
+
         const login = await logIn(state.user.email || "", state.user.password);
-        dispatch({type: "storeUser", userState: {user: login.data}});
-        dispatch({type: "updateState", userState: {user: login.data}});
+        console.log("login: " + JSON.stringify(login));
+        dispatch({type: "storeUser", userState: {user: login}});
+        dispatch({type: "updateState", userState: {user: login}});
     }
     dispatch({type: "done"});
 

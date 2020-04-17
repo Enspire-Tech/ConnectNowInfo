@@ -1,27 +1,18 @@
-import http from "./httpService";
-import { apiUrlTimLocalHost } from "../config.json";
+import settings from "./httpService";
+import { apiUrlProduction, apiTimLocalHost } from "../config.json";
 import IUserProfile from "./../interfaces/IUserProfile";
-import { AxiosPromise } from "axios";
 import IChangePassword from "./../interfaces/IChangePassword";
 
-const apiEndpoint = apiUrlTimLocalHost + "/UserProfile";
+const apiEndpoint = apiTimLocalHost + "UserProfile";
 
 const appendMethod = (method: string) => {
     return `${apiEndpoint}/${method}`;
 };
 
+/*
+
 const getUser = (id: string): AxiosPromise<IUserProfile> => {
     return http.get(appendMethod("UserById/" + id));
-};
-
-const logIn = (userName: string, password?: string): AxiosPromise<IUserProfile> => {
-
-    const user = {
-        username: userName,
-        accessToken: password
-    };
-
-    return http.post(appendMethod("Login"), user);
 };
 
 const updatePassword = (changePassword: IChangePassword) => {
@@ -46,8 +37,36 @@ const updateNameEmail = (userProfile: IUserProfile) => {
 
     return http.post(appendMethod("SetNameEmail"), object);
 };
+*/
 
-const upsert = (userProfile: IUserProfile) => {
+const logIn = async (userName: string, password?: string): Promise<IUserProfile> => {
+    const user = {
+        username: userName,
+        accessToken: password
+    };
+
+    settings.url = appendMethod("Login");
+    settings.method = "POST";
+    settings.data = JSON.stringify(user);
+
+    let returnUser: IUserProfile = {
+        authorized: false,
+        active: false,
+        failedAuthentication: true
+    };
+
+    return $.ajax(settings).done((response: any) => {
+        if (response.errorMessage) {
+            console.log("user log-in error", response.errorMessage);
+            console.log("settings", settings);
+        } else {
+            returnUser = response;
+            returnUser.failedAuthentication = !response.authorized;
+        }
+    });
+};
+
+const upsert = async (userProfile: IUserProfile): Promise<IUserProfile> => {
     const user = {
         firstName: userProfile.firstName,
         lastName: userProfile.lastName,
@@ -56,7 +75,13 @@ const upsert = (userProfile: IUserProfile) => {
         active: userProfile.active
     };
 
-    return http.post(appendMethod("Upsert"), user);
+    settings.url = appendMethod("Upsert");
+    settings.method = "POST";
+    settings.data = JSON.stringify(user);
+
+    return $.ajax(settings).done((response: IUserProfile) => {
+        console.log("upsert " + response);
+    });
 };
 
-export { getUser, logIn, upsert, updateNameEmail, updatePassword };
+export { logIn, upsert };

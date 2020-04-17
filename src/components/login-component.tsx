@@ -17,7 +17,7 @@ export const LoginComponent: React.FC = () => {
         setShouldRedirct(isAuthorized);
       }, [shouldRedirect]);
 
-    const handleBlur = (e: any) => {
+    const handleChange = (e: any) => {
         switch (e.target.name) {
             case "username":
                 userState.user.email = e.target.value;
@@ -42,7 +42,9 @@ export const LoginComponent: React.FC = () => {
             // setAuthUser(userState.user);
         });
 
-        setInterval(() => { dispatch({type: "done"}); }, 1000);
+        setInterval(() => {
+            dispatch({type: "done"});
+        }, 100);
     };
 
     return (
@@ -64,11 +66,11 @@ export const LoginComponent: React.FC = () => {
                         </div>
                         <div className="col-6 offset-3">
                             <label htmlFor="username">Username</label>
-                            <input name="username" id="username" className="form-control" type="text" onBlur={handleBlur}></input>
+                            <input name="username" id="username" className="form-control" type="text" onChange={handleChange}></input>
                         </div>
                         <div className="col-6 offset-3 pad-top">
                             <label htmlFor="password">Password</label>
-                            <input name="password" id="password" className="form-control" type="password" onBlur={handleBlur}></input>
+                            <input name="password" id="password" className="form-control" type="password" onChange={handleChange}></input>
                         </div>
                         <div className="col-6 offset-3 pad-top">
                             <button className="btn btn-primary navy login" onClick={handleLogin} type="button" disabled={userState.loading}>
@@ -86,6 +88,35 @@ export const LoginComponent: React.FC = () => {
                                     </span>
                                 }
                                 </button>
+                        </div>
+                        <div className="col-6 offset-3 login-container pad-top">
+                            <p>
+                                <a
+                                    href="/Documentation"
+                                    title="Service Desk"
+                                    target="blank"
+                                >
+                                    API Reference
+                                </a>
+                            </p>
+                            <p>
+                                <a
+                                    href="./embedded-bcn/index.html"
+                                    title="CN Solutions"
+                                    target="blank"
+                                >
+                                    Boomi Connect Now Embedded
+                                </a>
+                            </p>
+                            <p>
+                                <a
+                                    href="https://flow.manywho.com/abc01a4e-3f09-4f37-a175-643eae3edfcb/play/GA105?flow-id=5f1f3608-da36-4de8-ac1c-2ba3e9a0bc62"
+                                    title="CN Production"
+                                    target="blank"
+                                >
+                                    Boomi Connect Now Production
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
