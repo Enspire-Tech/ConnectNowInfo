@@ -52,10 +52,10 @@ export const Documentation: React.FC = () => {
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-13">Get Process Schedule</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-14">Get Processes in a Deployed Integration Pack</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-15">Removed Installed Integration Pack Instance</a></li>
+                    <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-22">Upsert Account Profile</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-16">Upsert Environment Extensions</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-17">Upsert Map Extensions</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-18">Upsert Process Schedule</a></li>
-                    
                 </ul>
             </nav>
         </div>
@@ -69,9 +69,9 @@ export const Documentation: React.FC = () => {
                 </article>
                 <article className="docs-article" id="api">
                     <header className="docs-header">
-                        <h1 className="docs-heading">API <span className="docs-time">Last updated: 2020-03-23</span></h1>
+                        <h1 className="docs-heading">API <span className="docs-time">Last updated: 2020-04-10</span></h1>
                         <section className="docs-intro">
-                            <p>This section includes documentaiton for Boomi Connect Now's API services.</p>
+                            <p>Documentation for the Boomi Connect Now API.</p>
                         </section>
                     </header>
                     <section className="docs-section" id="item-1-1">
@@ -886,6 +886,49 @@ export const Documentation: React.FC = () => {
                             <li><strong className="mr-1">AccountId:</strong> <code>the AAID of the account for which to retrieve Atom details.</code></li>
                         </ul>
                     </section>
+                    <section className="docs-section" id="item-1-22">
+                        <h2 className="section-heading">Upsert Account Profile</h2>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/upsertAccountProfile HTTPS/1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div className="docs-code-block">
+                            <pre className="shadow-lg rounded">
+                                <code className="json hljs">
+{`{
+    "accountId": "",
+    "logoUrl": "...",
+    "nickName": "",
+    "owner": "",
+    "serviceAccessToken": "",
+    "serviceUserName": "",
+    "enableIPackOverrideName": "",
+    "createdByUsername": "",
+    "active": ""
+}`}
+                                </code>
+                            </pre>
+                        </div>
+                        <ul className="no-bullets">
+                        <li><strong className="mr-1">accountId:</strong> <code>the AAID of the account.</code></li>
+                            <li><strong className="mr-1">logoUrl:</strong> <code>URL to the logo image to display.  Leave blank to inherit from the master account.</code></li>
+                            <li><strong className="mr-1">nickName:</strong> <code>friendly name of the account.</code></li>
+                            <li><strong className="mr-1">owner:</strong> <code>the AAID of the owning account.</code></li>
+                            <li><strong className="mr-1">serviceAccessToken:</strong> <code>the password of the service account.  Leave blank to inherit from the owning account.</code></li>
+                            <li><strong className="mr-1">serviceUserName:</strong> <code>the username of the service account.  Leave blank to inherit from the owning account.</code></li>
+                            <li><strong className="mr-1">enableIPackOverrideName:</strong> <code><strong>true</strong> to enable user to enter a name for a deployed multi-install integration pack.  <strong>false</strong> for the deployed instance to inherit the name from the source integration pack.</code></li>
+                            <li><strong className="mr-1">createdByUsername:</strong> <code>the user who is configuring the account.</code></li>
+                            <li><strong className="mr-1">active:</strong> <code><strong>true</strong> to make this an active account.  <strong>false</strong> to deactivate the account.</code></li>
+                        </ul>
+                    </section>
+
                 </article>
             </div>
         </div>
