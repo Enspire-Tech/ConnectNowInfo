@@ -3,7 +3,7 @@ import { apiUrlProduction, apiTimLocalHost } from "../config.json";
 import IUserProfile from "./../interfaces/IUserProfile";
 import IChangePassword from "./../interfaces/IChangePassword";
 
-const apiEndpoint = apiUrlProduction + "UserProfile";
+const apiEndpoint = apiTimLocalHost + "UserProfile";
 
 const appendMethod = (method: string) => {
     return `${apiEndpoint}/${method}`;
@@ -55,9 +55,16 @@ const logIn = async (userName: string, password?: string): Promise<IUserProfile>
         failedAuthentication: true
     };
 
-    return $.ajax(settings).done((response: IUserProfile) => {
-        returnUser = response;
-        returnUser.failedAuthentication = !response.authorized;
+    return $.ajax(settings).done((response: any) => {
+        if (response.errorMessage) {
+            console.log("<component name> error", response.errorMessage);
+            console.log("settings", settings);
+            // notify user if appropriate
+            // remove wait spinner
+        } else {
+            returnUser = response;
+            returnUser.failedAuthentication = !response.authorized;
+        }
     });
 };
 
