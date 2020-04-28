@@ -1,5 +1,5 @@
 import settings from "./httpService";
-import { apiUrlProduction } from "../config.json";
+import { apiUrlProduction, apiUrlDev, apiTimLocalHost } from "../config.json";
 import IUserProfile from "./../interfaces/IUserProfile";
 // import IChangePassword from "./../interfaces/IChangePassword";
 
