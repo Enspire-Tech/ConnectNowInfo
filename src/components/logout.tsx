@@ -2,6 +2,8 @@ import React from "react";
 import { useUserState, useUserDispatch, doLogOut } from "../context/user-provider";
 import IUserProfile from "./../interfaces/IUserProfile";
 
+require ("../styles/logout.css");
+
 interface ILogoutProps {
     onLogout: () => void;
 }

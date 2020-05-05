@@ -1,4 +1,4 @@
-import { apiKey } from "../config.json";
+import { apiKeyDev, apiKeyProduction } from "../config.json";
 
 const settings = {
     async: true,
@@ -7,7 +7,7 @@ const settings = {
     method: "",
     withCredentials: false,
     headers: {
-        "x-api-key": apiKey,
+        "x-api-key": apiKeyDev,
         "Content-Type": "application/json"
     },
     processData: false,
