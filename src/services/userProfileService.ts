@@ -1,7 +1,6 @@
 import settings from "./httpService";
 import { apiUrlProduction } from "../config.json";
 import IUserProfile from "./../interfaces/IUserProfile";
-// import IChangePassword from "./../interfaces/IChangePassword";
 
 const apiEndpoint = apiUrlProduction;
 
@@ -15,7 +14,7 @@ const logIn = async (userName: string, password?: string): Promise<IUserProfile>
         accessToken: password
     };
 
-    settings.url = appendMethod("userprofile/login");
+    settings.url = appendMethod("bcn/User/login");
     settings.method = "POST";
     settings.data = JSON.stringify(user);
 
@@ -24,6 +23,8 @@ const logIn = async (userName: string, password?: string): Promise<IUserProfile>
         active: false,
         failedAuthentication: true
     };
+
+    console.log("logIn settings", settings);
 
     return $.ajax(settings).done((response: any) => {
         if (response.errorMessage) {
