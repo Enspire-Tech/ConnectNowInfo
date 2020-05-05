@@ -72,7 +72,13 @@ const userReducer = (state: IState, action: Action): IState => {
             break;
         }
         case "storeUser": {
+
+            // console.log("res: " + JSON.stringify(res));
+
             res.user = action.userState.user;
+
+            console.log("res.user: " + JSON.stringify(res.user));
+
             if (res.user.authorized === true) {
                 res.user.password = "";
                 const expirationDate = new Date();
@@ -83,7 +89,6 @@ const userReducer = (state: IState, action: Action): IState => {
             } else {
                 res.user.failedAuthentication = true;
             }
-            // console.log(res.user);
             break;
         }
         case "updateState": {
@@ -126,41 +131,40 @@ const doLogin = async (dispatch: any, state: IState) => {
     // console.log("do login.");
 
     dispatch({type: "loading"});
-    let testUser;
+
+    console.log("state.user.password: " + state.user.password);
+
+    let user: IUser = { authorized: false, active: false, failedAuthentication: true, username: state.user.email, email: state.user.email };
+
     if (state.user.email === "dellboomi") {
         if (state.user.password === "connectnow") {
-            testUser = {
+            console.log("valid user");
+            user = {
                 id: "test_id",
                 authorized: true,
                 firstName: "Test",
                 lastName: "User",
-                email: "testuser@connectnow.info",
+                email: state.user.email,
                 // password: state.user.password,
                 active: true,
                 organization: "Dell Boomi",
                 accessLevel: 1,
                 message: "",
-                username: state.user.email,
-                failedAuthorization: false
-            };
-        } else {
-            testUser = {
-                authorized: false,
-                failedAuthorization: true,
+                failedAuthentication: false,
                 username: state.user.email
             };
         }
-
-        // const login = await logIn(state.user.email || "", state.user.password);
-        dispatch({type: "storeUser", userState: {user: testUser}});
-        // dispatch({type: "updateState", userState: {user: login.data}});
-    } else {
-
-        const login = await logIn(state.user.email || "", state.user.password);
-        console.log("login: " + JSON.stringify(login));
-        dispatch({type: "storeUser", userState: {user: login}});
-        dispatch({type: "updateState", userState: {user: login}});
     }
+
+    // const login = await logIn(state.user.email || "", state.user.password);
+    // console.log("login: " + JSON.stringify(login));
+    // dispatch({type: "storeUser", userState: {user: login}});
+    // dispatch({type: "updateState", userState: {user: login}});
+
+    console.log(user);
+
+    dispatch({type: "storeUser", userState: {user}});
+    dispatch({type: "updateState", userState: {user}});
     dispatch({type: "done"});
 
 };
