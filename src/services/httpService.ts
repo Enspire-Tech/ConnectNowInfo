@@ -1,19 +1,19 @@
-import { apiKeyDev, apiKeyProduction } from "../config.json";
+import { apiUrl, authorization } from "../config.json";
 
-const settings = {
+const httpSettings = {
     async: true,
     crossDomain: true,
-    url: "",
-    method: "",
-    withCredentials: false,
-    headers: {
-        "x-api-key": apiKeyDev,
-        "Content-Type": "application/json"
-    },
-    processData: false,
-    dataType: "json",
     contentType: "application/json",
-    data: ""
+    data: "",
+    dataType: "json",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Basic ${authorization}`
+    },
+    method: "",
+    processData: false,
+    url: apiUrl,
+    withCredentials: true
 };
 
-export default settings;
+export default httpSettings;

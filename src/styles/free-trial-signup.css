@@ -1,0 +1,31 @@
+.CNApp .signup-container {
+  position: fixed;
+  right: 15px;
+  top: 10vh;
+  color: #f5f7f9;
+  padding: 0.5em;
+  border: 1px solid #f5f7f9;
+  background-color: #043d58;
+  z-index: 999;
+  max-width: 500px;
+}
+.CNApp .signup-container a {
+  color: #ff8333;
+}
+.CNApp .signup-container .invite {
+  font-size: larger;
+  cursor: pointer;
+}
+.CNApp .signup-container .signup-form {
+  padding: 0.5em;
+  text-align: center;
+}
+.CNApp .signup-container .signup-form select {
+  padding: 5px;
+}
+.CNApp .signup-container .signup-form label {
+  color: #f5f7f9;
+}
+.CNApp .signup-container .signup-form .signup-form-footer {
+  font-size: small;
+}

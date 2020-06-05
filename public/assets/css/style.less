@@ -1,23 +1,4 @@
-@active-nav:#f9b508;
-@border-color: #d6d6d6;
-@light-grey: #e0e0e0;
-@border-color-dark: #808080;
-@container-background:  #f5f7f9;
-@content-background: #fff;
-@dell-blue: #007db8;
-@dell-grey: #ababab;
-@dell-steel: #657792;
-@dell-boomi: #043d58;
-@inactive-text-color: #454545;
-@list-active: #ffd739;
-@navbar-text-color: #f0f0f0;
-@warning: #9e1d1d;
-@default-padding: 20px;
-@body-padding: 100px;
-@dark: #000;
-@light: #fff;
-@bold: 700;
-
+@import (reference) "../../../src/styles/variables.less";
 
 body {
   font-family: fieldwork, sans-serif;
@@ -468,7 +449,25 @@ body {
 
 .cta-section .container {
 	position: relative;
-	z-index: 10
+  z-index: 10;
+}
+
+.flex-bottom {
+  display: flex;
+  flex-flow: column-reverse;
+  justify-content: flex-end;
+}
+
+.flex-center {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  button {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .cta-section .section-intro {
@@ -513,6 +512,10 @@ body {
 .btn-primary:active {
   outline: none !important;
   box-shadow: none !important;
+}
+
+button{
+  border: none !important;
 }
 
 .btn-xl {
@@ -582,38 +585,50 @@ body {
 	background: rgba(2, 41, 59, .3)
 }
 
-.btn-primary, .btn-primary:active, .btn-primary:hover  {
-  background-color: inherit;
-  border-color: @active-nav;
+.btn-primary, .btn-primary:active  {
+  background-color: @active-nav;
   color: @dark;
   font-weight: @bold;
   text-transform: uppercase;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
 }
 
-.btn-primary:active, .btn-primary:hover {
-  background-color: @active-nav;
+.btn-primary:active, .btn-primary:hover, .btn-primary:focus {
+  background-color: @active-nav  !important;
+  color: @container-background;
 }
 
 .btn-secondary, .btn-secondary:active, .btn-secondary:hover  {
-  background-color: inherit;
+  background-color: @border-color;
   border-color: @border-color-dark;
   color: @dark;
-  font-weight: @bold;
   text-transform: uppercase;
+  font-size: smaller;
 }
 
 .btn-secondary:active, .btn-secondary:hover {
-  background-color: @border-color-dark;
-  color: @light;
+  background-color: @border-color-dark !important;
+  color: @container-background;
 }
 
 .card-header {
     padding: 0 !important;
 }
 
+.larger {
+  font-size: larger;
+}
+.center-text{
+  text-align: center;
+}
+.pad-top{
+  padding-top: @padding;
+}
+.pad-bottom{
+  padding-bottom: @padding;
+}
 /*
 .page-caption {
     // padding-top: 10rem;

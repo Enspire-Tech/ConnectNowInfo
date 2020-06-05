@@ -1,7 +1,9 @@
 {
-    "apiKeyDev": "19Oe6ZLnucaM9c4l1s4s389XOET29vJC32bE41UJ",
-    "apiKeyProduction": "oInnN65ogz3iMbe0XlPHs7pLKoqKqola1bGfnjn6",
-    "apiTimLocalHost": "http://localhost:99/api",
-    "apiUrlDev": "https://u1kj5a7f7h.execute-api.us-west-2.amazonaws.com/dev/api",
-    "apiUrlProduction": "https://u1kj5a7f7h.execute-api.us-west-2.amazonaws.com/Prod/api"
+    "apiUrl": "https://connect.boomi.com",
+    "resources": {
+        "freeTrialSignup": "/ws/rest/cnInfo/connectNowInfoTrial",
+        "heartbeat": "/ws/rest/cnInfo/Heartbeat",
+        "contactEmail": "mailto:connectnow@enspire-tech.com?subject=Connect Now Info Request"
+    },
+    "authorization": "Ym9vbWljb25uZWN0bm93ZGV2LUlHNjJFNS5QWFREOUs6NzFhOGRmMmMtZjcxYy00ZWEwLWI2YjQtNDFiZGI0Yzg1OTE2"
 }

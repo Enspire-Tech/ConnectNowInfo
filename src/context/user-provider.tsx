@@ -1,6 +1,6 @@
 import React from "react";
 import IUser from "../interfaces/IUserProfile";
-import { logIn, upsert } from "../services/userProfileService";
+import { upsert } from "../services/userProfileService";
 
 type Action = {type: "loading"} |
     {type: "logout"} |

@@ -1,22 +1,17 @@
-import settings from "./httpService";
-import { apiUrlProduction, apiUrlDev, apiTimLocalHost } from "../config.json";
+import httpSettings from "./httpService";
+import { apiUrl } from "../config.json";
 import IUserProfile from "./../interfaces/IUserProfile";
 
-const apiEndpoint = apiUrlProduction;
-
-const appendMethod = (method: string) => {
-    return `${apiEndpoint}/${method}`;
-};
-
 const logIn = async (userName: string, password?: string): Promise<IUserProfile> => {
+
     const user = {
         username: userName,
         accessToken: password
     };
 
-    settings.url = appendMethod("bcn/User/login");
-    settings.method = "POST";
-    settings.data = JSON.stringify(user);
+    httpSettings.url = `${apiUrl}/User/login`;
+    httpSettings.method = "POST";
+    httpSettings.data = JSON.stringify(user);
 
     let returnUser: IUserProfile = {
         authorized: false,
@@ -24,12 +19,12 @@ const logIn = async (userName: string, password?: string): Promise<IUserProfile>
         failedAuthentication: true
     };
 
-    console.log("logIn settings", settings);
+    // console.log("logIn settings", settings);
 
-    return $.ajax(settings).done((response: any) => {
+    return $.ajax(httpSettings).done((response: any) => {
         if (response.errorMessage) {
             console.log("user log-in error", response.errorMessage);
-            console.log("settings", settings);
+            console.log("settings", httpSettings);
         } else {
             returnUser = response;
             returnUser.failedAuthentication = !response.authorized;
@@ -46,11 +41,11 @@ const upsert = async (userProfile: IUserProfile): Promise<IUserProfile> => {
         active: userProfile.active
     };
 
-    settings.url = appendMethod("Upsert");
-    settings.method = "POST";
-    settings.data = JSON.stringify(user);
+    httpSettings.url = `${apiUrl}/User/upsert`;
+    httpSettings.method = "POST";
+    httpSettings.data = JSON.stringify(user);
 
-    return $.ajax(settings).done((response: IUserProfile) => {
+    return $.ajax(httpSettings).done((response: IUserProfile) => {
         console.log("upsert " + response);
     });
 };

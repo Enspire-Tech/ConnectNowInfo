@@ -1,0 +1,42 @@
+@import (reference) "./variables.less";
+
+.CNApp {
+
+    .signup-container{
+        position: fixed;
+        right: 15px;
+        top: 10vh;
+        color: @container-background;
+        padding: 0.5em;
+        border: 1px solid @container-background;
+        background-color: @dell-boomi;
+        z-index: 999;
+        max-width: 500px;
+        
+        a {
+            color: @active-nav;
+        }
+        
+        .invite{
+            font-size: larger;
+            cursor: pointer;
+        }
+
+        .signup-form{
+            padding: 0.5em;
+            text-align: center;
+
+            select {
+                padding: 5px;    
+            }
+
+            label {
+                color: @container-background;
+            }
+
+            .signup-form-footer{
+                font-size: small;
+            }
+        }
+    }
+}

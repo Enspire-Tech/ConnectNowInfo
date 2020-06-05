@@ -372,6 +372,21 @@ body {
   position: relative;
   z-index: 10;
 }
+.flex-bottom {
+  display: flex;
+  flex-flow: column-reverse;
+  justify-content: flex-end;
+}
+.flex-center {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.flex-center button {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+}
 .cta-section .section-intro {
   font-size: 1.125rem;
 }
@@ -409,6 +424,9 @@ body {
 .btn-primary:active {
   outline: none !important;
   box-shadow: none !important;
+}
+button {
+  border: none !important;
 }
 .btn-xl {
   padding: 1.25rem 2.25rem;
@@ -468,37 +486,48 @@ body {
   background: rgba(2, 41, 59, 0.3);
 }
 .btn-primary,
-.btn-primary:active,
-.btn-primary:hover {
-  background-color: inherit;
-  border-color: #f9b508;
+.btn-primary:active {
+  background-color: #ff8333;
   color: #000;
-  font-weight: 700;
   text-transform: uppercase;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
 }
 .btn-primary:active,
-.btn-primary:hover {
-  background-color: #f9b508;
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #ff8333 !important;
+  color: #f5f7f9;
 }
 .btn-secondary,
 .btn-secondary:active,
 .btn-secondary:hover {
-  background-color: inherit;
+  background-color: #d6d6d6;
   border-color: #808080;
   color: #000;
-  font-weight: 700;
   text-transform: uppercase;
+  font-size: smaller;
 }
 .btn-secondary:active,
 .btn-secondary:hover {
-  background-color: #808080;
-  color: #fff;
+  background-color: #808080 !important;
+  color: #f5f7f9;
 }
 .card-header {
   padding: 0 !important;
+}
+.larger {
+  font-size: larger;
+}
+.center-text {
+  text-align: center;
+}
+.pad-top {
+  padding-top: 2em;
+}
+.pad-bottom {
+  padding-bottom: 2em;
 }
 /*
 .page-caption {
