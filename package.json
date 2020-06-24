@@ -23,15 +23,16 @@
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "rimraf": "^3.0.2",
     "save": "^2.4.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "minifyJS": "uglifyjs scripts.js --compress --mangle --warn --output scripts.min.js",
-    "production": "npm run rm -f ./build/*.* && npm run minifyJS "
+    "cleanBuild": "rimraf ./build/*",
+    "noMaps": "rimraf ./build/**/*.map",
+    "build": "npm run cleanBuild && set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"

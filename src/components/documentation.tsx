@@ -156,7 +156,8 @@ export const Documentation: React.FC = () => {
                                 <code className="json hljs">
 {`{
     "auth": "...",
-    "accountId": ""
+    "accountId": "",
+    "@type": ""
 }`}
                                 </code>
                             </pre>
@@ -164,6 +165,7 @@ export const Documentation: React.FC = () => {
                         <ul className="no-bullets">
                             <li><strong className="mr-1">Auth:</strong> <code>username:password of the service account, base-64 encoded.</code></li>
                             <li><strong className="mr-1">AccountId:</strong> <code>the AAID of the sub-account for which you want available IPacks.</code></li>
+                            <li><strong className="mr-1">@type:</strong> <code>(optional) BOTH to return both SINGLE and MULTI install iPacks.  Only MULTI install iPacks are returned by default.</code></li>
                         </ul>
                     </section>
                     <section className="docs-section" id="item-1-4">
@@ -905,7 +907,7 @@ export const Documentation: React.FC = () => {
 {`{
     "accountId": "",
     "logoUrl": "...",
-    "nickName": "",
+    "nickname": "",
     "owner": "",
     "serviceAccessToken": "",
     "serviceUserName": "",
@@ -919,7 +921,7 @@ export const Documentation: React.FC = () => {
                         <ul className="no-bullets">
                         <li><strong className="mr-1">accountId:</strong> <code>the AAID of the account.</code></li>
                             <li><strong className="mr-1">logoUrl:</strong> <code>URL to the logo image to display.  Leave blank to inherit from the master account.</code></li>
-                            <li><strong className="mr-1">nickName:</strong> <code>friendly name of the account.</code></li>
+                            <li><strong className="mr-1">nickname:</strong> <code>friendly name of the account.</code></li>
                             <li><strong className="mr-1">owner:</strong> <code>the AAID of the owning account.</code></li>
                             <li><strong className="mr-1">serviceAccessToken:</strong> <code>the password of the service account.  Leave blank to inherit from the owning account.</code></li>
                             <li><strong className="mr-1">serviceUserName:</strong> <code>the username of the service account.  Leave blank to inherit from the owning account.</code></li>
@@ -936,3 +938,4 @@ export const Documentation: React.FC = () => {
             </React.Fragment>
           );
 };
+

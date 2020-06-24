@@ -1,15 +1,15 @@
 var manywho = {
     cdnUrl: 'https://assets.manywho.com',
     customResources: [
-        'https://files-manywho-com.s3.amazonaws.com/80242998-66d4-44a0-9eba-fd5bc5644932/ga104.ci-components.js',
-        'https://files-manywho-com.s3.amazonaws.com/80242998-66d4-44a0-9eba-fd5bc5644932/ga104.ci-components.css'
+        'https://files-manywho-com.s3.amazonaws.com/b7493b27-2215-4de8-a0b5-17bbcd94a2e7/ci-components.js',
+        'https://files-manywho-com.s3.amazonaws.com/b7493b27-2215-4de8-a0b5-17bbcd94a2e7/ci-components.css'
     ],
     requires: ['core', 'bootstrap3'],
     initialize: function () {
 
         var queryParameters = manywho.utils.parseQueryString(window.location.search.substring(1));
-
-        manywho.theming.custom('https://files-manywho-com.s3.amazonaws.com/80242998-66d4-44a0-9eba-fd5bc5644932/ga104.customstyles.css');
+        
+        manywho.theming.custom('https://files-manywho-com.s3.amazonaws.com/b7493b27-2215-4de8-a0b5-17bbcd94a2e7/customstyles.css');
         
         manywho.settings.initialize({
             adminTenantId: 'da497693-4d02-45db-bc08-8ea16d2ccbdf',
@@ -17,8 +17,32 @@ var manywho = {
             joinUrl: [ location.protocol, '//', location.host, location.pathname ].join(''),
             platform: {
                 uri: 'https://flow.manywho.com'
+            },
+            ci: {
+                stage: 'prod',
+                idp: queryParameters['idp'],
+                bma: queryParameters['bma']
+            },
+            outcomes: {
+                // Change how outcomes are rendered: icon, iconandtext, iconnobackground
+                display: null,
+                // Fix outcomes to the bottom of screen
+                isFixed: false,
+            },
+            validation: {
+                isEnabled: true
             }
         });
+
+        // querystring elements to FLow Values
+        var flowInputs = null;
+        var inputs = [];
+        if(queryParameters["prt"]) {
+            inputs.push({"prt": queryParameters["prt"]});
+        }
+        if(inputs.length > 0) {
+            flowInputs = manywho.json.generateFlowInputs(inputs);
+        }
 
         var options = {
             authentication: {
@@ -28,14 +52,12 @@ var manywho = {
             navigationElementId: queryParameters['navigation-element-id'],
             mode: queryParameters['mode'],
             reportingMode: queryParameters['reporting-mode'],
-            trackLocation: false,
             replaceUrl: false,
             collaboration: {
                 isEnabled: false
             },
-            inputs: null,
+            inputs: flowInputs,
             annotations: null,
-            collapsible: true,
             navigation: {
                 isFixed: true,
                 isWizard: false
@@ -44,12 +66,12 @@ var manywho = {
             theme: queryParameters['theme']
         };
 
-        var tenantId = 'abc01a4e-3f09-4f37-a175-643eae3edfcb';
-        flowId = '5f1f3608-da36-4de8-ac1c-2ba3e9a0bc62'; 
-
+        var tenantId = 'b7493b27-2215-4de8-a0b5-17bbcd94a2e7';
+        var flowId = '5f1f3608-da36-4de8-ac1c-2ba3e9a0bc62';
+        
         manywho.engine.initialize(
             tenantId,
-            flowId, // queryParameters['flow-id'],
+            flowId,
             queryParameters['flow-version-id'],
             'main',
             queryParameters['join'],

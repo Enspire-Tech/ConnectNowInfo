@@ -5,6 +5,8 @@ import { SelectList } from "./formElements/select-list";
 import { StateCodes} from "../constants";
 import IOption from "../interfaces/IOption";
 import httpSettings from "../services/httpService";
+import { IconEnvelope } from "./icons/envelope";
+
 import $ from "jquery";
 
 require ("../styles/free-trial-signup.css");
@@ -152,15 +154,19 @@ export const FreeTrialSignup: React.FC = () => {
 
         const updateProgress = () => {
 
-            if (i > steps.length || done) { return; }
+            if (i > steps.length - 1 || done) { return; }
 
             i++;
-            $("#progress").html(steps[i]);
-            interval = Math.floor(Math.random() * 12) * 1000;
-            if (interval < 6000) { interval = 8000; }
-            console.log("i", i, "interval", interval);
-            setTimeout(updateProgress, interval);
-
+            $("#progress").fadeOut(
+                300,
+                () => {
+                    $("#progress").html(steps[i]).fadeIn(300);
+                });
+            interval = (Math.floor(Math.random() * 12) * 1000) + 6;
+            // console.log("i", i, "interval", interval);
+            if (i < steps.length - 1) {
+                setTimeout(updateProgress, interval);
+            }
         };
 
         setTimeout(updateProgress, interval);
@@ -168,6 +174,7 @@ export const FreeTrialSignup: React.FC = () => {
     };
 
     // console.log("signupState", signupState);
+    const mailLink = `mailto:${signupData.provisionedByUserName}?subject=Connect Now Link&body=Log in to Connect Now Here:  ${signupSteps.DONE}`;
 
     return <div className="row signup-container">
         {signupState.signupStep === signupSteps.CLOSED &&
@@ -301,8 +308,15 @@ export const FreeTrialSignup: React.FC = () => {
         {signupState.signupStep === signupSteps.DONE &&
         <div className="col-xs-12 padded">
             <h3>Success!</h3>
-            <p>Your trial account, {signupState.accountId}, has been provisioned.  The account will expire in 60 days.</p>
-            <p>Your username is your email address, <strong>{signupData.provisionedByUserName}</strong> and your password is <strong>changeme</strong>.  You can <a href={signupState.signupStep} target="_blank" rel="noopener noreferrer">log in here</a>.</p>
+            <p>Your trial account, <strong>{signupState.accountId}</strong>, has been provisioned.  The account will expire in 60 days.</p>
+            <p>Your username is your email address, <strong>{signupData.provisionedByUserName}</strong> and your password is <strong>changeme</strong>.</p>
+            <p>
+                You can <a href={signupState.signupStep} target="_blank" rel="noopener noreferrer">log in to Connect Now here</a> or&nbsp;
+                <IconEnvelope />
+                <a href={mailLink}>
+                    share the login link
+                </a>.
+            </p>
             <p>For any questions or to discuss next steps, please <a href={resources.contactEmail}>contact us</a>.</p>
             <div className="row">
                 <div className="col-12 center-text">

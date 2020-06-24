@@ -9,7 +9,7 @@
   z-index: 999;
   max-width: 500px;
 }
-.CNApp .signup-container a {
+.CNApp .signup-container a:not(.bi) {
   color: #ff8333;
 }
 .CNApp .signup-container .invite {
