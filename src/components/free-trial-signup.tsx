@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { resources, authorization } from "../config.json";
+import { resources, authorization, masterAccountId, masterAccountToken } from "../config.json";
 import { TextInput, TextInputType } from "./formElements/text-input";
 import { SelectList } from "./formElements/select-list";
 import { StateCodes} from "../constants";
@@ -13,6 +13,7 @@ require ("../styles/free-trial-signup.css");
 
 interface ISignupData {
     [key: string ]: string;
+    masterAccountId: string;
     provisionedByFirstName: string;
     provisionedByLastName: string;
     provisionedByUserName: string;
@@ -32,6 +33,7 @@ const signupSteps = {
 
 const initSignupData = (): ISignupData => {
     return {
+        masterAccountId: "",
         provisionedByFirstName: "",
         provisionedByLastName: "",
         provisionedByUserName: "",
@@ -76,6 +78,8 @@ export const FreeTrialSignup: React.FC = () => {
 
     const signUp = () => {
         let valid = true;
+
+        signupData.masterAccountId = masterAccountId;
         for (const property in signupData as ISignupData) {
             if (signupData[property] === "") {
                 $(`#${property}`).addClass("invalid-element");
@@ -92,7 +96,8 @@ export const FreeTrialSignup: React.FC = () => {
         );
 
         if (!valid) { return; }
-        httpSettings.url = `${httpSettings.url}${resources.freeTrialSignup};boomi_auth=${authorization}`;
+
+        httpSettings.url = `${httpSettings.url}${resources.provisionSubAccount};boomi_auth=${authorization}`;
         httpSettings.method = "POST";
         httpSettings.data = JSON.stringify(signupData);
         httpSettings.withCredentials = true;
@@ -103,15 +108,43 @@ export const FreeTrialSignup: React.FC = () => {
 
         // console.log("settings", httpSettings);
 
+        $("#progress").html("provisioning sub-account");
+
         $.ajax(httpSettings)
         .done((response: any) => {
             if (response.errorMessage) {
+
                 console.log("signup error", response.errorMessage);
                 console.log("settings", httpSettings);
                 signupState.signupStep = signupSteps.ERROR;
                 setSignupState(signupState);
+
             } else {
-                console.log("provision complete", response);
+
+                console.log("sub-account provision complete", response);
+
+                $("#progress").html("provisioning cloud environment");
+
+                httpSettings.url = `${httpSettings.url}${resources.provisionEnvironmentAndAtom};boomi_auth=${authorization}`;
+                httpSettings.data = JSON.stringify({
+                    accountId: response.accountId,
+                    auth: masterAccountToken,
+                    message: signupData.name
+                });
+
+                console.log("provision cloud request", httpSettings);
+
+                $.ajax(httpSettings)
+                .done((provisionResponse: any) => {
+// TODO - finish this
+                })
+                .fail((err: any, message: any) => {
+                    console.log("provision environment error",  JSON.stringify(err), JSON.stringify(message));
+                    console.log("settings", httpSettings);
+                    signupState.signupStep = signupSteps.ERROR;
+                    setSignupState(signupState);
+                });
+
                 setSignupState({
                     signupStep: signupSteps.DONE,
                     isValid: valid,
@@ -120,19 +153,19 @@ export const FreeTrialSignup: React.FC = () => {
             }
         })
         .fail((err: any, message: any) => {
-            console.log("signup error",  JSON.stringify(err), JSON.stringify(message));
+            console.log("provision sub account error",  JSON.stringify(err), JSON.stringify(message));
             console.log("settings", httpSettings);
             signupState.signupStep = signupSteps.ERROR;
             setSignupState(signupState);
         })
         .always(() => {
-            doProgress(true);
+            // doProgress(true);
         });
 
-        doProgress(false);
+        // doProgress(false);
 
     };
-
+/*
     const doProgress = (done: boolean) => {
 
         if (done) {
@@ -172,6 +205,7 @@ export const FreeTrialSignup: React.FC = () => {
         setTimeout(updateProgress, interval);
 
     };
+*/
 
     // console.log("signupState", signupState);
     const mailLink = `mailto:${signupData.provisionedByUserName}?subject=Connect Now Link&body=Log in to Connect Now Here:  ${signupSteps.DONE}`;

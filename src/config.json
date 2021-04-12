@@ -1,9 +1,13 @@
 {
-    "apiUrl": "https://connect.boomi.com",
+    "apiUrl": "https://test.connect.boomi.com",
     "resources": {
-        "freeTrialSignup": "/ws/rest/cnInfo/connectNowInfoTrial",
+        "provisionSubAccount": "/ws/simple/createSubAccount",
+        "provisionEnvironmentAndAtom": "/ws/simple/createEnvironmentAndAtom",
+        "upsertAccountProfile": "/ws/simple/upsertAccountProfile",
         "heartbeat": "/ws/rest/cnInfo/Heartbeat",
         "contactEmail": "mailto:connectnow@enspire-tech.com?subject=Connect Now Info Request"
     },
-    "authorization": "Ym9vbWljb25uZWN0bm93ZGV2LUlHNjJFNS5QWFREOUs6NzFhOGRmMmMtZjcxYy00ZWEwLWI2YjQtNDFiZGI0Yzg1OTE2"
+    "authorization": "Ym9vbWljb25uZWN0bm93bWFzdGVyLUpYUFJVOS5GVzJVUUc6ZWMxZmZlNTItODU3ZS00ZTY0LThlMDQtYzk5ZWJiNTVmYmI3",
+    "masterAccountId": "citizenintegratordemo-BD9HQB",
+    "masterAccountToken": "c3ZjRGVsbEJvb21pQGVuc3BpcmUtdGVjaC5jb206QzBubjNjdE4wdyE="
 }

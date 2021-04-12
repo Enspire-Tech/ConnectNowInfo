@@ -56,6 +56,7 @@ export const Documentation: React.FC = () => {
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-16">Upsert Environment Extensions</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-17">Upsert Map Extensions</a></li>
                     <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-18">Upsert Process Schedule</a></li>
+                    <li className="nav-item"><a className="nav-link scrollto" href="#content" data-section-id="item-1-23">Upsert User Profile</a></li>
                 </ul>
             </nav>
         </div>
@@ -930,7 +931,42 @@ export const Documentation: React.FC = () => {
                             <li><strong className="mr-1">active:</strong> <code><strong>true</strong> to make this an active account.  <strong>false</strong> to deactivate the account.</code></li>
                         </ul>
                     </section>
-
+                    <section className="docs-section" id="item-1-23">
+                        <h2 className="section-heading">Upsert User Profile</h2>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">POST:</strong> <code>ws/simple/upsertUserProfile HTTPS 1.1</code></li>
+                            <li><strong className="mr-1">HOST:</strong> <code>connect.boomi.com</code></li>
+                        </ul>
+                        <h3>HEADERS</h3>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Accept:</strong> <code>application/json</code></li>
+                            <li><strong className="mr-1">Content-Type:</strong> <code>application/json</code></li>
+                            <li><strong className="mr-1">Authorization:</strong> <code>Basic</code></li>
+                        </ul>
+                        <h3>BODY</h3>
+                        <div className="docs-code-block">
+                            <pre className="shadow-lg rounded">
+                                <code className="json hljs">
+{`{
+    "name": "",
+    "username": "...",
+    "accountId": "",
+    "accessToken": "",
+    "active": "",
+    "roleId": ""
+}`}
+                                </code>
+                            </pre>
+                        </div>
+                        <ul className="no-bullets">
+                            <li><strong className="mr-1">Name:</strong> <code>the full name of the user</code></li>
+                            <li><strong className="mr-1">Username:</strong> <code>the user's email address</code></li>
+                            <li><strong className="mr-1">Account Id:</strong> <code>the current account id</code></li>
+                            <li><strong className="mr-1">Access Token:</strong> <code>the user's password (optional)</code></li>
+                            <li><strong className="mr-1">Active:</strong> <code>active status of the user</code></li>
+                            <li><strong className="mr-1">Role Id:</strong> <code>the role of the user</code></li>
+                        </ul>
+                    </section>
                 </article>
             </div>
         </div>
@@ -938,4 +974,3 @@ export const Documentation: React.FC = () => {
             </React.Fragment>
           );
 };
-

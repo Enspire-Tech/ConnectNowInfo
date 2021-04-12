@@ -2,7 +2,7 @@
 var manywho = {
     cdnUrl: 'https://assets.manywho.com',
     customResources: [
-        'https://files-manywho-com.s3.amazonaws.com/b7493b27-2215-4de8-a0b5-17bbcd94a2e7/ci-components.js',
+        'https://files-manywho-com.s3.amazonaws.com/aeafc7cc-7262-460b-9c5b-02114bd71ccb/ci-components.js',
         'https://files-manywho-com.s3.amazonaws.com/b7493b27-2215-4de8-a0b5-17bbcd94a2e7/ci-components.css'
     ],
     requires: ['core', 'bootstrap3'],
@@ -21,8 +21,8 @@ var manywho = {
             joinUrl: [ location.protocol, '//', location.host, location.pathname ].join(''),
             ci: {
                 stage: 'prod',
-                idp: queryParameters['idp'],
-                bma: queryParameters['bma']
+                idp: '', // queryParameters['idp'],
+                bma: '' // queryParameters['bma']
             },
             outcomes: {
                 // Change how outcomes are rendered: icon, iconandtext, iconnobackground
@@ -35,7 +35,7 @@ var manywho = {
             }
         });
 
-        // querystring elements to FLow Values
+        // querystring elements to Flow Values
         var flowInputs = null;
         var inputs = [];
         if(queryParameters["prt"]) {
@@ -62,7 +62,8 @@ var manywho = {
             annotations: null,
             navigation: {
                 isFixed: true,
-                isWizard: false
+                isWizard: false,
+                hideNav: true
             },
             callbacks: [],
             theme: queryParameters['theme']

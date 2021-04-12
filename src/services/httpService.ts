@@ -13,7 +13,8 @@ const httpSettings = {
     method: "",
     processData: false,
     url: apiUrl,
-    withCredentials: true
+    withCredentials: true,
+    timeout: 63000 // sign-up is a longish process
 };
 
 export default httpSettings;

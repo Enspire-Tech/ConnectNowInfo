@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://platform.boomi.com/favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./wait-spinner.css" />
+    <link 
+      rel="stylesheet" 
+      href="https://files-manywho-com.s3.amazonaws.com/aeafc7cc-7262-460b-9c5b-02114bd71ccb/customstyles.css" id="theme" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+      <title>
+      Embedded Connect Now
+    </title>
+  <body>
+    <div class="outer-container container-fluid">
+      <div class="row">
+        <div class="col-xs-12 nav-container">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand navbar-image padded" href="#">
+                  <img src="https://d18qs7yq39787j.cloudfront.net/uploads/company/3862/acme_logo.jpg" alt="Logo" />
+                </a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="#">Option 1</a></li>
+                <li><a href="#">Option 2</a></li>
+                <li><a href="#">Option 3</a></li>
+                <li class="active"><a href="#">Connect Now</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="row">
+        <!--/Left Column-->
+        <div id="left_column" class="col-lg-3 col-sm-2">
+        </div>
+        <!-- Center Column -->
+        <div id="center_column" class="col-lg-6 col-sm-8 no-padding">
+            <div class="h-100">
+              <!-- ============================================
+                    THIS IS WHERE CONNECT NOW WILL BE RENDERED
+              -->
+              <div id="manywho">
+                <div id="loader" class="mw-bs" style="width: 100%; height: 100%;">
+                    <div class="wait-container">
+                        <div class="wait-spinner"></div>
+                    </div>
+                </div>
+                <div class="logo">
+                </div>
+            </div>
+            <div id="chat-bot" class="mw-bs">
+            </div>
+            <!-- ============================================ -->
+          </div>
+        </div>
+        <!-- / Center Column -->
+        <!-- Right Column -->
+        <div id="right_column" class="col-lg-3 col-sm-12 widescreen-slide-container slide-in">
+          <div id="slide_container" class="col-12 text-right">
+          </div>
+        <!--/Right Column -->
+        </div>
+      </div>
+    </div>
+    <footer class="py-3 bg-white footer-light fixed-bottom border-top">
+      <div class="container">
+      </div>
+    </footer>
+
+    <!-- Boomi Connect Now config -->
+    <script>
+      
+      const assetUrl = "https://files-manywho-com.s3.amazonaws.com/aeafc7cc-7262-460b-9c5b-02114bd71ccb/";
+      const tenantId = "b7493b27-2215-4de8-a0b5-17bbcd94a2e7";
+      const playerUrl = "https://flow.manywho.com/" + tenantId + "/play/prod";
+      const flowId = "5f1f3608-da36-4de8-ac1c-2ba3e9a0bc62";
+
+      const versionId = "";
+
+      const engineOptions = {
+          authentication: {
+              sessionId: "",
+              sessionUrl: ""
+          },
+          navigationElementId: "",
+          mode: "",
+          reportingMode: "",
+          replaceUrl: false,
+          collaboration: {
+              isEnabled: false
+          },
+          inputs: [], // flowInputs,
+          annotations: null,
+          navigation: {
+              isFixed: true,
+              isWizard: false,
+              hideNav: true,
+              collapseable: false,
+              collapsed: false
+          },
+          callbacks: [],
+          theme: ""
+      };
+
+      var initializeOptions = {
+          platform: {
+              uri: "https://flow.manywho.com"
+          },
+          adminTenantId: "da497693-4d02-45db-bc08-8ea16d2ccbdf",
+          playerUrl: playerUrl,
+          joinUrl: playerUrl,
+          ci: {
+              stage: "prod",
+              idp: "",
+              bma: "",
+              messageOrigin: "",
+              token: "",
+              userInfoApiUrl: ""
+          },
+          outcomes: {
+              // Change how outcomes are rendered: icon, iconandtext, iconnobackground
+              display: null,
+              // Fix outcomes to the bottom of screen
+              isFixed: false,
+          },
+          validation: {
+              isEnabled: true
+          }
+      };
+
+      var manywho = {
+          cdnUrl: "https://assets.manywho.com",
+          customResources: [
+              assetUrl + "ci-components.js",
+              assetUrl + "ci-components.css"
+          ],
+          requires: ["core", "bootstrap3"],
+          initialize: function () {
+
+              manywho.settings.initialize(initializeOptions);
+              
+              manywho.engine.initialize(
+                  tenantId,
+                  flowId,
+                  versionId, 
+                  "main",
+                  "", // join
+                  "", // authorization
+                  engineOptions,
+                  "" // initialization
+              );
+          }
+      };
+
+    </script>
+
+    <!-- static assets, Flow core 3.10 -->
+    <script src="https://assets.manywho.com/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="https://assets.manywho.com/js/vendor/bootstrap-3.3.6.min.js"></script>
+    <script src="https://assets.manywho.com/js/vendor/react-16.8.6.min.js"></script>
+    <script src="https://assets.manywho.com/js/vendor/react-dom-16.8.6.min.js"></script>
+    <script src="https://assets.manywho.com/js/vendor/socket.io-1.4.5.js"></script>
+    <script src="https://assets.manywho.com/js/vendor/chosen.jquery-1.4.2.min.js"></script>
+    <script src="https://assets.manywho.com/js/vendor/moment-with-locales-2.10.6.min.js"></script>
+    <script src="https://assets.manywho.com/js/vendor/loglevel-1.4.0.min.js"></script>
+    
+    <link rel="stylesheet" href="https://assets.manywho.com/css/flow-ui-bootstrap-components-3.10.0.css"/>
+    <link rel="stylesheet" href="https://assets.manywho.com/css/flow-ui-bootstrap-3.10.0.css"/>
+    <script src="https://assets.manywho.com/js/flow-core-3.10.0.js"></script>
+    <script src="https://assets.manywho.com/js/flow-ui-bootstrap-3.10.0.js"></script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,es6"></script>
+    
+    <!-- Connect Now loader -->
+    <script>
+
+      (function (manywho, window, $) {
+        function appendScript(url, onLoad) {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.onload = onLoad;
+            script.src = url;
+            document.head.appendChild(script);
+        }
+        function appendStylesheet(url, id) {
+            var compiledStyles = document.createElement("link");
+            compiledStyles.rel = "stylesheet";
+            compiledStyles.href = url;
+            compiledStyles.id = id;
+            document.head.appendChild(compiledStyles);
+        }
+        manywho.loader = {
+            initialize: function (callback, cdnUrl, customResources) {
+                var scripts = [];
+                if (customResources) {
+                    customResources.forEach(function (url) {
+                        if (url.match("css$")) {
+                            appendStylesheet(url);
+                        }
+                        else if (url.match("js$")) {
+                            scripts.push(url);
+                        }
+                    });
+                }
+                var loadedScriptCount = 0;
+                if (scripts.length > 0) {
+                    scripts.forEach(function (url, index, scripts) {
+                        appendScript(url, function () {
+                            loadedScriptCount++;
+                            if (loadedScriptCount === scripts.length) {
+                                callback();
+                            }
+                        });
+                    });
+                }
+                else {
+                    callback();
+                }
+            }
+        };
+    
+        window.onload = () => {
+            // initializeOptions.ci.bma = "";
+            // initializeOptions.ci.idp = "";
+            manywho.loader.initialize(manywho.initialize, manywho.cdnUrl, manywho.customResources);
+        };
+      
+      }(manywho, window, jQuery));
+    </script>
+    
+  </body>
+</html>
+

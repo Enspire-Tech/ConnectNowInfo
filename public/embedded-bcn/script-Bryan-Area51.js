@@ -36,4 +36,9 @@ $(document).ready(function() {
             $("#center_column").addClass("col-lg-6");
         }
     });
+
+    var data = {accountId: "abc"};
+    console.log("posting ", data, " to ", $("#connectNowIframe")[0]);
+    $("#connectNowIframe")[0].contentWindow.postMessage({accountId: "abc", token: "123"}, "*");
+
   });
